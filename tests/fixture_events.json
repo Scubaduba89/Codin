@@ -97,8 +97,8 @@
       "events": [
         { "v": 1, "uid": "cccccccccc01", "ts": "2026-09-01T18:00:00Z", "device": "desktop", "type": "quiz", "id": "terminal-a1", "xp": 15 },
         { "v": 1, "uid": "cccccccccc02", "ts": "2026-09-03T18:00:00Z", "device": "phone", "type": "review", "id": "review:terminal-a1:q1", "xp": 5 },
-        { "v": 1, "uid": "cccccccccc03", "ts": "2026-09-10T18:00:00Z", "device": "phone", "type": "review", "id": "review:terminal-a1:q1", "xp": 5 },
-        { "v": 1, "uid": "cccccccccc04", "ts": "2026-09-12T18:00:00Z", "device": "desktop", "type": "quiz", "id": "terminal-a1", "xp": 15 }
+        { "v": 1, "uid": "cccccccccc03", "ts": "2026-09-08T18:00:00Z", "device": "phone", "type": "review", "id": "review:terminal-a1:q1", "xp": 5 },
+        { "v": 1, "uid": "cccccccccc04", "ts": "2026-09-11T18:00:00Z", "device": "desktop", "type": "quiz", "id": "terminal-a1", "xp": 15 }
       ],
       "expect": { "xp": 25, "level": 1, "badges": ["two-places"], "completed_modules": [], "ignored": 0 }
     },
@@ -143,7 +143,7 @@
         { "v": 1, "uid": "2222222222a1", "ts": "2026-11-01T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#1", "xp": 40 },
         { "v": 1, "uid": "2222222222a2", "ts": "2026-11-05T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#1", "xp": 40 },
         { "v": 1, "uid": "2222222222a3", "ts": "2026-11-09T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#2", "xp": 40 },
-        { "v": 1, "uid": "2222222222a4", "ts": "2026-11-20T18:00:00Z", "device": "desktop", "type": "pass", "id": "c-f7-01", "xp": 100 }
+        { "v": 1, "uid": "2222222222a4", "ts": "2026-11-12T18:00:00Z", "device": "desktop", "type": "pass", "id": "c-f7-01", "xp": 100 }
       ],
       "expect": { "xp": 180, "level": 4, "badges": ["hello-codin"], "completed_modules": [], "ignored": 0 }
     },
