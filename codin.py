@@ -28,6 +28,33 @@ def build_parser():
     log = sub.add_parser("log", help="recent progress events")
     log.add_argument("-n", type=int, default=15)
 
+    nxt = sub.add_parser("next", help="exactly one suggestion for right now")
+    nxt.add_argument("--phone", action="store_true",
+                     help="phone session (auto-detected on Termux)")
+    nxt.add_argument("--minutes", type=int, help="how long you've got")
+
+    start = sub.add_parser("start", help="open an exercise (sandbox + instructions)")
+    start.add_argument("id")
+
+    chk = sub.add_parser("check", help="verify your work; pass = XP, always")
+    chk.add_argument("id", nargs="?", help="defaults to the last started exercise")
+
+    qz = sub.add_parser("quiz", help="module quiz (first pass at 80%% pays XP)")
+    qz.add_argument("module")
+
+    sub.add_parser("review", help="answer due review items (5 XP each, phone-friendly)")
+
+    park = sub.add_parser("park", help="shelve a module, guilt-free")
+    park.add_argument("module")
+    res = sub.add_parser("resume", help="bring a parked module back")
+    res.add_argument("module")
+
+    rst = sub.add_parser("reset", help="rebuild an exercise sandbox from scratch")
+    rst.add_argument("id")
+
+    gate = sub.add_parser("gate", help="take a phase gate (e.g. gate p1)")
+    gate.add_argument("phase")
+
     sub.add_parser("tree", help="the whole map, in the terminal")
     sub.add_parser("badges", help="badge case + what's within reach")
     sub.add_parser("index", help="regenerate docs/data/curriculum.json (content authoring)")

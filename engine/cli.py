@@ -218,6 +218,220 @@ def cmd_sync(repo_root, args):
     ui.say("")
 
 
+def _find_exercise(curriculum, ex_id):
+    kind, ex = content.find(curriculum, ex_id)
+    if kind != "exercise":
+        ui.say("No exercise called '%s'. See the map: %s tree" % (ex_id, PY))
+        return None
+    return ex
+
+
+def _event_type(ex, curriculum):
+    if ex["type"] == "gate":
+        return "gate"
+    mod = content.module_map(curriculum)[ex["module"]]
+    if mod["track"] == "workshop":
+        return "milestone"
+    return "pass"
+
+
+def cmd_start(repo_root, args):
+    from . import checkers, sandbox
+
+    curriculum, st, _ = load_world(repo_root)
+    ex = _find_exercise(curriculum, args.id)
+    if ex is None:
+        return 1
+    ok, unmet = content.unlocked(curriculum, ex, st)
+    if not ok:
+        ui.say("Not yet - %s unlocks after: %s." % (ex["id"], ", ".join(unmet)))
+        ui.say("Gates keep the path walkable; nothing here is busywork.")
+        return 1
+    local = state_mod.load(repo_root)
+    mods = in_progress_modules(curriculum, st, local)
+    if len(mods) >= 2 and ex["module"] not in [m["id"] for m in mods]:
+        ui.say(ui.c("Heads-up: %d modules already in progress. Finish or park "
+                    "one first? (%s park <module>) Starting anyway." %
+                    (len(mods), PY), "yellow"))
+    try:
+        checker = checkers.load_checker(repo_root, ex)
+    except checkers.CheckFail:
+        checker = None
+    box, created = sandbox.materialize(repo_root, ex, checker)
+    local.setdefault("started", {})[ex["id"]] = events.now_ts()
+    state_mod.save(repo_root, local)
+
+    ui.headline("%s — %s  (~%d min, %d XP)" % (
+        ex["id"], ex["title"], ex["minutes"], ex["xp"]))
+    if not ex.get("phone") and state_mod.is_termux():
+        ui.say(ui.c("  (This one is better done at the desk.)", "yellow"))
+    instructions = Path(repo_root) / ex["dir"] / "instructions.md"
+    if instructions.exists():
+        ui.say("")
+        for line in instructions.read_text(encoding="utf-8").splitlines():
+            ui.say("  " + line)
+    if created and any(Path(box).iterdir()):
+        ui.say("")
+        ui.say("  Your sandbox: %s" % Path(box).relative_to(repo_root))
+    ui.say("")
+    ui.say("  When you think it's done: %s check %s" % (PY, ex["id"]))
+    ui.say("")
+
+
+def _celebrate_pass(repo_root, curriculum, ex, before, etype, xp, note=None):
+    """Append the event, then show exactly what changed: XP, level,
+    newly derived badges. Brief and vivid, then hand back control."""
+    device = state_mod.device_name(repo_root) or "unknown"
+    events.append(repo_root, etype, ex["id"] if etype != "stage" else ex["_stage_id"], xp, device)
+    evs, _ = events.load(repo_root)
+    after = rules.replay(evs, curriculum)
+    defs = badges.load_defs(repo_root)
+    new_badges = [
+        b for b in badges.evaluate(defs, after)
+        if b["key"] not in {x["key"] for x in badges.evaluate(defs, before)}
+    ]
+    ui.win(after["xp"] - before["xp"], ex["title"])
+    if note:
+        ui.say("  " + note)
+    if after["level"]["number"] > before["level"]["number"]:
+        ui.level_up(after["level"])
+    for b in new_badges:
+        ui.badge(b)
+    for c in after["completed"]:
+        if c["module"] not in before["completed_modules"] and c["bonus"]:
+            ui.say(ui.c("  ◆ Module %s complete: +%d bonus XP" %
+                        (c["module"], c["bonus"]), "yellow", "bold"))
+    unsynced = sync_mod.unsynced_count(repo_root)
+    if unsynced >= 5:
+        ui.say(ui.c("  (%d events only on this machine - worth a `%s sync`.)" %
+                    (unsynced, PY), "dim"))
+    ui.say("")
+
+
+def cmd_check(repo_root, args):
+    from . import checkers, sandbox
+
+    curriculum, st, _ = load_world(repo_root)
+    local = state_mod.load(repo_root)
+    ex_id = args.id
+    if not ex_id:
+        started = local.get("started", {})
+        if not started:
+            ui.say("Which exercise? %s check <id>   (or just: %s next)" % (PY, PY))
+            return 1
+        ex_id = max(started, key=started.get)
+    ex = _find_exercise(curriculum, ex_id)
+    if ex is None:
+        return 1
+    ok, unmet = content.unlocked(curriculum, ex, st)
+    if not ok:
+        ui.say("Not yet - %s unlocks after: %s." % (ex["id"], ", ".join(unmet)))
+        return 1
+    if not state_mod.device_name(repo_root):
+        ui.say("One-time step first - name this device:")
+        ui.say("  %s doctor --device desktop   (or phone)" % PY)
+        return 1
+
+    try:
+        checker = checkers.load_checker(repo_root, ex)
+        box, _ = sandbox.materialize(repo_root, ex, checker)
+        etype = _event_type(ex, curriculum)
+
+        stages = checkers.stage_list(checker)
+        if stages:
+            done_stages = {
+                ev["id"] for ev in st["counted"] if ev["type"] == "stage"}
+            for n, (name, fn) in enumerate(stages, start=1):
+                stage_id = "%s#%d" % (ex["id"], n)
+                if stage_id in done_stages:
+                    continue
+                fn(checkers.Ctx(repo_root, ex, box))
+                ex["_stage_id"] = stage_id
+                _celebrate_pass(
+                    repo_root, curriculum, ex, st, "stage",
+                    ex.get("stage_xp", 40),
+                    note="Stage %d/%d — %s. The project pays as you climb." %
+                         (n, len(stages), name))
+                return 0
+        _, note = checkers.run_check(repo_root, ex, checker, box)
+    except checkers.CheckFail as e:
+        ui.fail(str(e))
+        return 1
+
+    if ex["id"] in st["done"]:
+        ui.say(ui.c("✔ Still passes.", "green") +
+               " XP for %s was earned the first time - redoing is honorable "
+               "practice, not a farm." % ex["id"])
+        return 0
+    _celebrate_pass(repo_root, curriculum, ex, st, etype, ex["xp"], note=note)
+    local.get("started", {}).pop(ex["id"], None)
+    state_mod.save(repo_root, local)
+    return 0
+
+
+def cmd_next(repo_root, args):
+    curriculum, st, _ = load_world(repo_root)
+    local = state_mod.load(repo_root)
+    due = due_review_count(repo_root, curriculum, st)
+    phone = args.phone or state_mod.is_termux()
+    print_next(repo_root, nextup.suggest(
+        curriculum, st, local, phone=phone, minutes=args.minutes,
+        due_reviews=due))
+    ui.say("")
+
+
+def cmd_quiz(repo_root, args):
+    from . import quiz
+    _, st, _ = load_world(repo_root)
+    return quiz.run(repo_root, args.module, st)
+
+
+def cmd_review(repo_root, args):
+    from . import review
+    curriculum, st, _ = load_world(repo_root)
+    return review.run(repo_root, curriculum, st)
+
+
+def cmd_park(repo_root, args):
+    local = state_mod.load(repo_root)
+    if args.module not in local.setdefault("parked", []):
+        local["parked"].append(args.module)
+    state_mod.save(repo_root, local)
+    ui.say("Parked %s - guilt-free. Bring it back with: %s resume %s" %
+           (args.module, PY, args.module))
+
+
+def cmd_resume(repo_root, args):
+    local = state_mod.load(repo_root)
+    if args.module in local.get("parked", []):
+        local["parked"].remove(args.module)
+        state_mod.save(repo_root, local)
+    ui.say("%s is active again." % args.module)
+
+
+def cmd_reset(repo_root, args):
+    from . import checkers, sandbox
+    curriculum, _, _ = load_world(repo_root)
+    ex = _find_exercise(curriculum, args.id)
+    if ex is None:
+        return 1
+    try:
+        checker = checkers.load_checker(repo_root, ex)
+    except checkers.CheckFail:
+        checker = None
+    sandbox.reset(repo_root, ex, checker)
+    ui.say("Fresh sandbox for %s. (The event log wasn't touched - "
+           "nothing is ever lost.)" % ex["id"])
+
+
+def cmd_gate(repo_root, args):
+    gate_id = args.phase if args.phase.startswith("gate-") else "gate-" + args.phase
+    ns = type("A", (), {"id": gate_id})()
+    ui.say(ui.c("Gate check: no hints, no tutor - this is a self-test. "
+                "Retakes are free, forever.", "bold"))
+    return cmd_check(repo_root, ns)
+
+
 def cmd_tutor_mark(repo_root, args):
     allowed = {"lesson", "hint", "check", "review", "stuck"}
     if args.name not in allowed:
