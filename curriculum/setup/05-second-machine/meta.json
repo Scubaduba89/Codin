@@ -1,0 +1,8 @@
+{
+  "id": "setup-05",
+  "title": "Second Machine",
+  "type": "standard",
+  "minutes": 25,
+  "phone": true,
+  "xp": 15
+}

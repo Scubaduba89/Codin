@@ -4,7 +4,6 @@ Run it on every new machine. All green means every exercise on the
 current phase can actually run here.
 """
 
-import json
 import shutil
 import subprocess
 import sys
@@ -63,15 +62,6 @@ def checks(repo_root, need_cc=False):
 
 
 def set_device(repo_root, name):
-    """Name this device and record the label in the committed profile."""
+    """Name this device (local state only - the dashboard learns device
+    names from the event log, so nothing committed changes here)."""
     state.set_device_name(repo_root, name)
-    prof_path = Path(repo_root) / "docs" / "data" / "profile.json"
-    try:
-        prof = json.loads(prof_path.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        prof = {}
-    devices = prof.setdefault("devices", [])
-    if name not in devices:
-        devices.append(name)
-        prof_path.parent.mkdir(parents=True, exist_ok=True)
-        prof_path.write_text(json.dumps(prof, indent=1) + "\n", encoding="utf-8")
