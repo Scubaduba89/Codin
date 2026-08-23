@@ -1,0 +1,58 @@
+{
+ "module": "terminal-a3",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "In `-rw-r--r--`, whose rights are the middle trio `r--`?",
+   "choices": [
+    "the owner's",
+    "the group's",
+    "everyone else's (others)",
+    "the root user's"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2",
+   "q": "What does `chmod u+x notes.sh` change?",
+   "choices": [
+    "everyone on the machine may now run it",
+    "the owner may now run it",
+    "the file moves into /usr",
+    "the file becomes hidden"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q3"
+  },
+  {
+   "key": "q4",
+   "q": "Why run your script as `./mine.sh` instead of plain `mine.sh`?",
+   "choices": [
+    "the dot makes it run faster",
+    "for bare names the shell searches only PATH; ./ points at this directory",
+    "scripts must legally start with a dot",
+    "./ runs it with root privileges"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q5"
+  },
+  {
+   "key": "q6"
+  },
+  {
+   "key": "q7",
+   "q": "Mode 640 on a file means:",
+   "choices": [
+    "owner read+write, group read-only, others nothing",
+    "everyone may read and write",
+    "owner read-only, group read+write, others nothing",
+    "owner read+write, group nothing, others read-only"
+   ],
+   "answer": 0
+  }
+ ]
+}

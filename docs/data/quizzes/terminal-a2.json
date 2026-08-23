@@ -1,0 +1,66 @@
+{
+ "module": "terminal-a2",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "You need a new folder called `projects`. Which command makes it?",
+   "choices": [
+    "touch projects",
+    "mkdir projects",
+    "cp projects",
+    "new projects"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2"
+  },
+  {
+   "key": "q3",
+   "q": "`journal.txt` does not exist. What does `mv notes.txt journal.txt` do?",
+   "choices": [
+    "copies notes.txt into journal.txt, keeping both",
+    "renames notes.txt to journal.txt",
+    "moves notes.txt into a folder called journal.txt",
+    "errors, because journal.txt does not exist"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q4",
+   "q": "`cp album backup/` complains; `cp -r album backup/` works. What does `-r` change?",
+   "choices": [
+    "it retries automatically if the copy fails",
+    "it copies the folder and everything inside it, recursively",
+    "it renames the copy as it goes",
+    "it copies read-only files too"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q5",
+   "q": "You rm'd the wrong file on a real machine. Where did it go?",
+   "choices": [
+    "the trash can - restore it from there",
+    "a hidden .trash folder in your home",
+    "it's simply gone; rm has no undo",
+    "nowhere - git keeps a copy automatically"
+   ],
+   "answer": 2
+  },
+  {
+   "key": "q6"
+  },
+  {
+   "key": "q7",
+   "q": "Before `mv *.pdf pdfs/` runs, what actually happens to `*.pdf`?",
+   "choices": [
+    "mv searches every subfolder for pdf files",
+    "the shell expands it into the list of matching names, then hands that list to mv",
+    "mv receives the literal five-character name `*.pdf`",
+    "nothing - the star is decoration"
+   ],
+   "answer": 1
+  }
+ ]
+}

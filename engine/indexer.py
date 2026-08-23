@@ -19,7 +19,7 @@ from . import content
 def _strip(mod):
     keep = (
         "id", "track", "title", "phase", "order", "summary",
-        "requires", "elective", "no_bonus",
+        "requires", "elective", "no_bonus", "dir",
     )
     out = {k: mod[k] for k in keep}
     out["exercises"] = [
@@ -44,7 +44,14 @@ def write_index(repo_root):
     out.write_text(json.dumps(index, indent=1) + "\n", encoding="utf-8")
     written.append(out)
 
+    fixture = repo_root / "tests" / "fixture_events.json"
+    if fixture.exists():  # docs/test.html runs the fixture in-browser
+        out = repo_root / "docs" / "data" / "fixture.json"
+        out.write_text(fixture.read_text(encoding="utf-8"), encoding="utf-8")
+        written.append(out)
+
     mirror_dir = repo_root / "docs" / "data" / "quizzes"
+    quiz_modules = []
     for quiz_path in sorted((repo_root / "quizzes").glob("*.json")):
         quiz = json.loads(quiz_path.read_text(encoding="utf-8"))
         mirror = {"module": quiz["module"], "questions": []}
@@ -63,5 +70,12 @@ def write_index(repo_root):
         mirror_dir.mkdir(parents=True, exist_ok=True)
         out = mirror_dir / quiz_path.name
         out.write_text(json.dumps(mirror, indent=1) + "\n", encoding="utf-8")
+        written.append(out)
+        quiz_modules.append(quiz_path.stem)
+    if quiz_modules:
+        out = mirror_dir / "index.json"
+        out.write_text(
+            json.dumps({"modules": quiz_modules}, indent=1) + "\n",
+            encoding="utf-8")
         written.append(out)
     return curriculum, written
