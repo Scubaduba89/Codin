@@ -1,0 +1,10 @@
+{
+  "id": "gates",
+  "track": "gates",
+  "title": "Phase Gates",
+  "phase": 1,
+  "order": 99,
+  "summary": "Cold, 10-minute self-tests that open the next phase. No hints, no tutor, free retakes forever - a gate measures what your hands remember.",
+  "requires": [],
+  "no_bonus": true
+}

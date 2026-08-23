@@ -1,0 +1,9 @@
+{
+  "id": "gate-p1",
+  "title": "Gate: Terminal & Git Survival",
+  "type": "gate",
+  "minutes": 10,
+  "phone": false,
+  "xp": 50,
+  "requires": ["terminal-a1", "terminal-a2", "terminal-a3", "terminal-a4", "git-b1"]
+}

@@ -1,0 +1,64 @@
+{
+  "module": "terminal-a1",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "You're lost in the filesystem. Which command prints exactly where you are?",
+      "choices": [
+        "ls",
+        "pwd",
+        "cd",
+        "whereami"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "What does `cd ..` do?",
+      "choices": [
+        "goes to your home directory",
+        "re-runs the last command",
+        "moves one directory up, toward the root",
+        "deletes the current directory"
+      ],
+      "answer": 2
+    },
+    {
+      "key": "q3",
+      "q": "Which ls flag reveals hidden dotfiles? (type the flag, dash included)",
+      "answer_sha": "c274891790345c56cef3b53c026bdc48150948fa60c56306073d6fea7766ad6a",
+      "hint_format": "a dash and one letter",
+      "accept_shas": [
+        "5c1fa7f4f5a9dc65179c7eb464b22c7d8f4c2582e2f5e3d375a62474e936bfc1",
+        "c274891790345c56cef3b53c026bdc48150948fa60c56306073d6fea7766ad6a",
+        "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+      ]
+    },
+    {
+      "key": "q4",
+      "q": "A path that starts with `/` is:",
+      "choices": [
+        "relative to where you're standing",
+        "absolute - the same from anywhere",
+        "always inside your home directory",
+        "a hidden path"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q5",
+      "q": "You can't remember a command's options. Name either built-in way to look them up (no internet needed).",
+      "answer_sha": "48b676e2b107da679512b793d5fd4cc4329f0c7c17a97cf6e0e3d1005b600b03",
+      "accept_shas": [
+        "0bdbc8fb00a40fb6f7bcaa79eeb92a5b6599b7588577bba6e853296fa5ea6af9",
+        "106a5842fc5fce6f663176285ed1516dbb1e3d15c05abab12fdca46d60b539b7",
+        "3afd494a176a60d41470b010b1a9d8e8949b4b4b3d9b1bff6f9e2c1b6a06f3c7",
+        "48b676e2b107da679512b793d5fd4cc4329f0c7c17a97cf6e0e3d1005b600b03",
+        "7156fb49f41f98c827f1e445a7d3cc2d40f1ef62289276c61e6085f230712810",
+        "e6a24e94dbf76664cd698f9ee01e3f239764316c4f596818127fa2c8fbfe820b",
+        "ee0650b08acfc929c2118bed78eac2f219d3311977fa5782a180ae092ecf4b50"
+      ],
+      "hint_format": "the command or flag itself"
+    }
+  ]
+}

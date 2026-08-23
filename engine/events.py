@@ -47,6 +47,7 @@ def parse_lines(lines):
             or any(field not in ev for field in REQUIRED_FIELDS)
             or ev["type"] not in EVENT_TYPES
             or not isinstance(ev["xp"], int)
+            or isinstance(ev["xp"], bool)
         ):
             ignored += 1
             continue

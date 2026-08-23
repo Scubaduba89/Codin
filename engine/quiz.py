@@ -7,6 +7,7 @@ plain text; multiple choice is plain (the phone practice page needs it).
 """
 
 import json
+import os
 import random
 from pathlib import Path
 
@@ -34,7 +35,8 @@ def grade(question, answer_text):
         if picked not in letters:
             return None  # not an answer; re-ask
         return letters.index(picked) == question["answer"]
-    return checkers.sha_norm(answer_text) == question["answer_sha"]
+    accepted = question.get("accept_shas") or [question["answer_sha"]]
+    return checkers.sha_norm(answer_text) in accepted
 
 
 def ask(question):
@@ -43,6 +45,8 @@ def ask(question):
     if "choices" in question:
         for i, choice in enumerate(question["choices"]):
             ui.say("    %s) %s" % ("abcdefgh"[i], choice))
+    elif question.get("hint_format"):
+        ui.say(ui.c("    (answer: %s)" % question["hint_format"], "dim"))
     while True:
         answer = input("  > ")
         result = grade(question, answer)
@@ -58,7 +62,8 @@ def run(repo_root, module_id, replay_state):
         ui.say("No quiz for '%s' (yet)." % module_id)
         return 1
     questions = list(bank["questions"])
-    random.shuffle(questions)
+    if not os.environ.get("CODIN_QUIZ_NO_SHUFFLE"):  # tests need order
+        random.shuffle(questions)
     right = 0
     for q in questions:
         ok, _ = ask(q)

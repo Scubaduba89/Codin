@@ -1,0 +1,90 @@
+{
+  "module": "terminal-a3",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "In `-rw-r--r--`, whose rights are the middle trio `r--`?",
+      "choices": [
+        "the owner's",
+        "the group's",
+        "everyone else's (others)",
+        "the root user's"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "What does `chmod u+x notes.sh` change?",
+      "choices": [
+        "everyone on the machine may now run it",
+        "the owner may now run it",
+        "the file moves into /usr",
+        "the file becomes hidden"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q3",
+      "q": "A file should be rwx for its owner and r-x for group and others. Which number do you hand to chmod? (r=4 w=2 x=1)",
+      "answer_sha": "86ab8cbe5869bd1f9c70924e9c04fef3bbe3bbaaf4e816efeeaf7eb6a31937d2",
+      "hint_format": "three digits",
+      "accept_shas": [
+        "86ab8cbe5869bd1f9c70924e9c04fef3bbe3bbaaf4e816efeeaf7eb6a31937d2",
+        "64a51d22e7aae84cdbea06be5b99f394734e7eef58c0af6f3f5c1c905e4cd3ea",
+        "739ae78bdc954625535d881255a70d9bda61a44869c6fcbcefdc67ae1b66ca3d"
+      ]
+    },
+    {
+      "key": "q4",
+      "q": "Why run your script as `./mine.sh` instead of plain `mine.sh`?",
+      "choices": [
+        "the dot makes it run faster",
+        "for bare names the shell searches only PATH; ./ points at this directory",
+        "scripts must legally start with a dot",
+        "./ runs it with root privileges"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q5",
+      "q": "What is the `#!` line at the top of a script called?",
+      "answer_sha": "c8c91095817f0cf3a7bd74e5a0104431cde285d893acbfc3b3d73396ea8844be",
+      "hint_format": "one word",
+      "accept_shas": [
+        "c8c91095817f0cf3a7bd74e5a0104431cde285d893acbfc3b3d73396ea8844be",
+        "02cdf0efea96adbbbb6a846bbdf25a114284120e4645ccf1b7a589aad517787d",
+        "6aaa9eebb17dd68b132372b1af0d6a511328e7f25e2779d3f2e49212a80cc57b",
+        "c5f1671eead9027637b9c41de74c1b42a870afec0f67d7dfd3c430e602249c14",
+        "4aae79fb9614927209013854a131cb124ad8b9839757128bef05883965bb99f2",
+        "890028302e394698fad7416e4b9b7dbbe8865b01d02c42dbc1b2717dc3db88fb",
+        "cda105f357e07cc12fb64c9acf6e725e43c953bfb335047f831e95396d1453e8",
+        "f81c6f2168550776b3a5e14f24e8b90fb6812904f2873aed975aa62b0ea139a9"
+      ]
+    },
+    {
+      "key": "q6",
+      "q": "Which part of the operating system reads that `#!` line and starts the right interpreter?",
+      "answer_sha": "7c2f712a5b31004cd31b6fe611e12219b02a73755049a698be58fdfa32a856cf",
+      "hint_format": "one word - the OS's core",
+      "accept_shas": [
+        "7c2f712a5b31004cd31b6fe611e12219b02a73755049a698be58fdfa32a856cf",
+        "6923dd1bc0460082c5d55a831908c24a282860b7f1cd6c2b79cf1bc8857c639c",
+        "77c717213694cf7f3a61c22e98383af840517c6d61f7acd4220a3c08d791958e",
+        "7052cd4711fffa6525b4f7e8ab63382ddc19b6711bbda01877f72a6ab6f4572b",
+        "b7e584cf4578673d73169fd441182ff5318750a9e6c21c8ac20995f968f34fe7",
+        "f27936a614cfaf93c35a8cbbaa9f3a9e898152188c5a5b6c7af90a79129f5ade"
+      ]
+    },
+    {
+      "key": "q7",
+      "q": "Mode 640 on a file means:",
+      "choices": [
+        "owner read+write, group read-only, others nothing",
+        "everyone may read and write",
+        "owner read-only, group read+write, others nothing",
+        "owner read+write, group nothing, others read-only"
+      ],
+      "answer": 0
+    }
+  ]
+}

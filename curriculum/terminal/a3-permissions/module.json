@@ -1,0 +1,9 @@
+{
+  "id": "terminal-a3",
+  "track": "terminal",
+  "title": "Permissions",
+  "phase": 1,
+  "order": 4,
+  "summary": "Every file carries a rulebook: who may read, write, run. Decode ls -l, speak chmod in letters and numbers, then write your first script - and meet the shebang the kernel reads.",
+  "requires": ["terminal-a2"]
+}
