@@ -1,0 +1,6 @@
+# The progress log is append-only; union merge means appends from two
+# devices (desktop + phone) never produce a merge conflict.
+docs/data/events.jsonl merge=union
+
+# Git exercise fixtures are binary bundles.
+*.bundle binary

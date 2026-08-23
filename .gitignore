@@ -1,0 +1,14 @@
+# Codin runtime state - always local, never shared between devices
+.codin/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editors & OS noise
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

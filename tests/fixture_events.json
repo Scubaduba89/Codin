@@ -1,0 +1,159 @@
+{
+  "_comment": "Hermetic conformance fixture for SPEC.md. Both engines (engine/rules.py+badges.py and docs/js/rules.js+badges.js) must reproduce every case exactly. 'badges' expectations are compared as sets. Expected values were computed by hand from SPEC.md - if an engine disagrees, the engine is wrong.",
+  "curriculum": {
+    "modules": [
+      {
+        "id": "setup",
+        "exercises": [
+          { "id": "setup-01", "xp": 10 },
+          { "id": "setup-02", "xp": 10 },
+          { "id": "setup-03", "xp": 10 },
+          { "id": "setup-04", "xp": 10 },
+          { "id": "setup-05", "xp": 15 }
+        ]
+      },
+      {
+        "id": "terminal-a1",
+        "exercises": [
+          { "id": "terminal-a1-01", "xp": 10 },
+          { "id": "terminal-a1-02", "xp": 10 },
+          { "id": "terminal-a1-03", "xp": 10 }
+        ]
+      },
+      {
+        "id": "terminal-a2",
+        "exercises": [{ "id": "terminal-a2-01", "xp": 25 }]
+      },
+      {
+        "id": "gates",
+        "no_bonus": true,
+        "exercises": [{ "id": "gate-p1", "xp": 50 }]
+      },
+      { "id": "python-c9", "exercises": [] }
+    ]
+  },
+  "badges": [
+    { "key": "hello-codin", "name": "Hello, Codin", "tier": "moment", "rule": { "kind": "first_event" } },
+    { "key": "first-commit", "name": "First Commit", "tier": "moment", "rule": { "kind": "exercise", "id": "setup-02" } },
+    { "key": "two-places", "name": "Two Places at Once", "tier": "moment", "rule": { "kind": "devices", "count": 2 } },
+    { "key": "wayfinder", "name": "Wayfinder", "tier": "power", "rule": { "kind": "modules_all", "ids": ["terminal-a1", "terminal-a2"] } },
+    { "key": "comeback", "name": "Comeback", "tier": "moment", "rule": { "kind": "gap_return", "days": 7 } },
+    { "key": "polyglot-mini", "name": "Polyglot Mini", "tier": "spirit", "rule": { "kind": "exercises_all", "ids": ["setup-01", "terminal-a2-01"] } },
+    { "key": "future-kind", "name": "From The Future", "tier": "spirit", "rule": { "kind": "quantum_entanglement", "qubits": 3 } }
+  ],
+  "cases": [
+    {
+      "name": "empty log",
+      "events": [],
+      "expect": { "xp": 0, "level": 1, "badges": [], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "single first win",
+      "events": [
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 }
+      ],
+      "expect": { "xp": 10, "level": 1, "badges": ["hello-codin"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "duplicate uid lines collapse",
+      "events": [
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 }
+      ],
+      "expect": { "xp": 10, "level": 1, "badges": ["hello-codin"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "same exercise on two devices counts once but proves the phone",
+      "events": [
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "bbbbbbbbbb01", "ts": "2026-08-24T08:30:00Z", "device": "phone", "type": "pass", "id": "setup-01", "xp": 10 }
+      ],
+      "expect": { "xp": 10, "level": 1, "badges": ["hello-codin", "two-places"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "setup module complete pays the bonus and reaches level 2",
+      "events": [
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa02", "ts": "2026-08-23T19:06:00Z", "device": "desktop", "type": "pass", "id": "setup-02", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa03", "ts": "2026-08-23T19:12:00Z", "device": "desktop", "type": "pass", "id": "setup-03", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa04", "ts": "2026-08-23T19:20:00Z", "device": "desktop", "type": "pass", "id": "setup-04", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa05", "ts": "2026-08-24T09:00:00Z", "device": "desktop", "type": "pass", "id": "setup-05", "xp": 15 }
+      ],
+      "expect": { "xp": 75, "level": 2, "badges": ["hello-codin", "first-commit"], "completed_modules": ["setup"], "ignored": 0 }
+    },
+    {
+      "name": "file order is irrelevant - only ts order matters",
+      "events": [
+        { "v": 1, "uid": "aaaaaaaaaa05", "ts": "2026-08-24T09:00:00Z", "device": "desktop", "type": "pass", "id": "setup-05", "xp": 15 },
+        { "v": 1, "uid": "aaaaaaaaaa03", "ts": "2026-08-23T19:12:00Z", "device": "desktop", "type": "pass", "id": "setup-03", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa01", "ts": "2026-08-23T19:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa04", "ts": "2026-08-23T19:20:00Z", "device": "desktop", "type": "pass", "id": "setup-04", "xp": 10 },
+        { "v": 1, "uid": "aaaaaaaaaa02", "ts": "2026-08-23T19:06:00Z", "device": "desktop", "type": "pass", "id": "setup-02", "xp": 10 }
+      ],
+      "expect": { "xp": 75, "level": 2, "badges": ["hello-codin", "first-commit"], "completed_modules": ["setup"], "ignored": 0 }
+    },
+    {
+      "name": "quiz pays once, reviews repeat",
+      "events": [
+        { "v": 1, "uid": "cccccccccc01", "ts": "2026-09-01T18:00:00Z", "device": "desktop", "type": "quiz", "id": "terminal-a1", "xp": 15 },
+        { "v": 1, "uid": "cccccccccc02", "ts": "2026-09-03T18:00:00Z", "device": "phone", "type": "review", "id": "review:terminal-a1:q1", "xp": 5 },
+        { "v": 1, "uid": "cccccccccc03", "ts": "2026-09-10T18:00:00Z", "device": "phone", "type": "review", "id": "review:terminal-a1:q1", "xp": 5 },
+        { "v": 1, "uid": "cccccccccc04", "ts": "2026-09-12T18:00:00Z", "device": "desktop", "type": "quiz", "id": "terminal-a1", "xp": 15 }
+      ],
+      "expect": { "xp": 25, "level": 1, "badges": ["two-places"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "returning after a gap earns comeback",
+      "events": [
+        { "v": 1, "uid": "dddddddddd01", "ts": "2026-01-01T12:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "dddddddddd02", "ts": "2026-01-10T12:00:00Z", "device": "desktop", "type": "pass", "id": "setup-03", "xp": 10 }
+      ],
+      "expect": { "xp": 20, "level": 1, "badges": ["hello-codin", "comeback"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "malformed lines are ignored, never fatal",
+      "events_raw": [
+        "this is not json at all",
+        "{\"v\":1,\"uid\":\"eeeeeeeeee01\",\"ts\":\"2026-08-23T19:00:00Z\",\"device\":\"desktop\",\"type\":\"pass\",\"id\":\"setup-01\",\"xp\":10}",
+        "{\"v\":1,\"missing\":\"most fields\"}",
+        ""
+      ],
+      "expect": { "xp": 10, "level": 1, "badges": ["hello-codin"], "completed_modules": [], "ignored": 2 }
+    },
+    {
+      "name": "two modules complete lights wayfinder",
+      "events": [
+        { "v": 1, "uid": "ffffffffff01", "ts": "2026-09-01T18:00:00Z", "device": "desktop", "type": "pass", "id": "terminal-a1-01", "xp": 10 },
+        { "v": 1, "uid": "ffffffffff02", "ts": "2026-09-02T18:00:00Z", "device": "desktop", "type": "pass", "id": "terminal-a1-02", "xp": 10 },
+        { "v": 1, "uid": "ffffffffff03", "ts": "2026-09-03T18:00:00Z", "device": "desktop", "type": "pass", "id": "terminal-a1-03", "xp": 10 },
+        { "v": 1, "uid": "ffffffffff04", "ts": "2026-09-04T18:00:00Z", "device": "desktop", "type": "pass", "id": "terminal-a2-01", "xp": 25 }
+      ],
+      "expect": { "xp": 75, "level": 2, "badges": ["hello-codin", "wayfinder"], "completed_modules": ["terminal-a1", "terminal-a2"], "ignored": 0 }
+    },
+    {
+      "name": "gates pay XP but no module bonus",
+      "events": [
+        { "v": 1, "uid": "1111111111a1", "ts": "2026-10-01T18:00:00Z", "device": "desktop", "type": "gate", "id": "gate-p1", "xp": 50 }
+      ],
+      "expect": { "xp": 50, "level": 2, "badges": [], "completed_modules": ["gates"], "ignored": 0 }
+    },
+    {
+      "name": "project stages pay once each, completion pays on top",
+      "events": [
+        { "v": 1, "uid": "2222222222a1", "ts": "2026-11-01T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#1", "xp": 40 },
+        { "v": 1, "uid": "2222222222a2", "ts": "2026-11-05T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#1", "xp": 40 },
+        { "v": 1, "uid": "2222222222a3", "ts": "2026-11-09T18:00:00Z", "device": "desktop", "type": "stage", "id": "c-f7-01#2", "xp": 40 },
+        { "v": 1, "uid": "2222222222a4", "ts": "2026-11-20T18:00:00Z", "device": "desktop", "type": "pass", "id": "c-f7-01", "xp": 100 }
+      ],
+      "expect": { "xp": 180, "level": 4, "badges": ["hello-codin"], "completed_modules": [], "ignored": 0 }
+    },
+    {
+      "name": "exercises_all fires across modules; unknown rule kinds never fire",
+      "events": [
+        { "v": 1, "uid": "3333333333a1", "ts": "2026-09-01T18:00:00Z", "device": "desktop", "type": "pass", "id": "setup-01", "xp": 10 },
+        { "v": 1, "uid": "3333333333a2", "ts": "2026-09-02T18:00:00Z", "device": "desktop", "type": "pass", "id": "terminal-a2-01", "xp": 25 }
+      ],
+      "expect": { "xp": 45, "level": 2, "badges": ["hello-codin", "polyglot-mini"], "completed_modules": ["terminal-a2"], "ignored": 0 }
+    }
+  ]
+}
