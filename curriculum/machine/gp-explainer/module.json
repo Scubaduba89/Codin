@@ -1,0 +1,11 @@
+{
+  "id": "machine-gp",
+  "track": "machine",
+  "title": "The Explainer",
+  "phase": 5,
+  "order": 3,
+  "summary": "The write-up project: 'How Linux works, as far as I can tell' - published on your dashboard with your own strace captures.",
+  "requires": [
+    "machine-g5"
+  ]
+}

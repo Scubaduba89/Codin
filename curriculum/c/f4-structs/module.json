@@ -1,0 +1,11 @@
+{
+  "id": "c-f4",
+  "track": "c",
+  "title": "Structs & Files",
+  "phase": 4,
+  "order": 6,
+  "summary": "structs, arrays of them, reading and writing files - the to-do CLI a third time, now in C.",
+  "requires": [
+    "c-f3"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "web-d2",
+  "track": "web",
+  "title": "CSS: Make It Yours",
+  "phase": 3,
+  "order": 2,
+  "summary": "Selectors, the box model, CSS variables, dark mode - practiced by restyling your own dashboard. The scaffold left obvious hooks on purpose.",
+  "requires": [
+    "gate-p2",
+    "web-d1"
+  ]
+}

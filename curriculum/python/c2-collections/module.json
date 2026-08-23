@@ -1,0 +1,11 @@
+{
+  "id": "python-c2",
+  "track": "python",
+  "title": "Collections & Loops",
+  "phase": 2,
+  "order": 2,
+  "summary": "Lists, dicts, and loops - closing with the A4 log boss re-solved in Python: same problem, second language.",
+  "requires": [
+    "python-c1"
+  ]
+}

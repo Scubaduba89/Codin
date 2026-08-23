@@ -1,0 +1,11 @@
+{
+  "id": "workshop-m5",
+  "track": "workshop",
+  "title": "M5: Author an Exercise",
+  "phase": 5,
+  "order": 1,
+  "summary": "Build a Codin exercise from curriculum/_template/ - instructions, checker, quiz questions. The platform now teaches what you decide it teaches.",
+  "requires": [
+    "workshop-m1"
+  ]
+}

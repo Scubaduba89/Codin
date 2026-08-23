@@ -1,0 +1,11 @@
+{
+  "id": "c-f2",
+  "track": "c",
+  "title": "Control Flow & the Stack",
+  "phase": 4,
+  "order": 2,
+  "summary": "Types, loops, functions, and the call stack - including blowing it up on purpose to see what 'stack overflow' literally means.",
+  "requires": [
+    "c-f1"
+  ]
+}

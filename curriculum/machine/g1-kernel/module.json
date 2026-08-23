@@ -1,0 +1,11 @@
+{
+  "id": "machine-g1",
+  "track": "machine",
+  "title": "What a Kernel Is",
+  "phase": 4,
+  "order": 3,
+  "summary": "The program beneath your programs: what the kernel does, what userspace is, and the Termux revelation - uname -a on the phone in your pocket.",
+  "requires": [
+    "gate-p3"
+  ]
+}

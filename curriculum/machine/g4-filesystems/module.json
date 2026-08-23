@@ -1,0 +1,11 @@
+{
+  "id": "machine-g4",
+  "track": "machine",
+  "title": "Filesystems & Inodes",
+  "phase": 4,
+  "order": 9,
+  "summary": "What a file actually is: inodes, hard and soft links, mounts, and df/du - the storage layer under everything you've built.",
+  "requires": [
+    "machine-g2"
+  ]
+}

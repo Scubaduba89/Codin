@@ -1,0 +1,11 @@
+{
+  "id": "data-e3",
+  "track": "data",
+  "title": "SQL from Python",
+  "phase": 3,
+  "order": 5,
+  "summary": "sqlite3 in the stdlib: parameters, transactions, and the bridge between the two languages you now speak.",
+  "requires": [
+    "data-e2"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "machine-g3",
+  "track": "machine",
+  "title": "Memory",
+  "phase": 4,
+  "order": 7,
+  "summary": "Virtual memory made touchable: read /proc/<pid>/maps of a C program you wrote - stack, heap, code, right there at their addresses.",
+  "requires": [
+    "machine-g2",
+    "c-f3"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "python-c3",
+  "track": "python",
+  "title": "Functions & Structure",
+  "phase": 2,
+  "order": 4,
+  "summary": "Functions, arguments, returns, and modules - taught the way this platform grades you: make the committed tests pass. Demystifies `codin check` from the inside.",
+  "requires": [
+    "python-c2"
+  ]
+}

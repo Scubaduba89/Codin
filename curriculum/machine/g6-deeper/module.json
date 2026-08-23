@@ -1,0 +1,12 @@
+{
+  "id": "machine-g6",
+  "track": "machine",
+  "title": "Deeper Water (electives)",
+  "phase": 5,
+  "order": 2,
+  "summary": "Loudly optional summits: a mini-ps in C, a TCP echo server, namespaces with unshare - and signposts to OSTEP, xv6, and Linux From Scratch for someday.",
+  "requires": [
+    "gate-p4"
+  ],
+  "elective": true
+}

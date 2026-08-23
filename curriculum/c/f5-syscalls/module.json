@@ -1,0 +1,11 @@
+{
+  "id": "c-f5",
+  "track": "c",
+  "title": "Syscalls",
+  "phase": 4,
+  "order": 8,
+  "summary": "strace your own printf and watch it become write(). The line between your program and the kernel, made visible. (Desktop-only labs.)",
+  "requires": [
+    "c-f4"
+  ]
+}

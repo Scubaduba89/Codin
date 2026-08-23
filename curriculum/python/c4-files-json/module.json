@@ -1,0 +1,11 @@
+{
+  "id": "python-c4",
+  "track": "python",
+  "title": "Files, JSON & Errors",
+  "phase": 2,
+  "order": 5,
+  "summary": "Read and write files, parse JSON, handle errors without fear - including pretty-printing your own events.jsonl: you'll read the platform's brain.",
+  "requires": [
+    "python-c3"
+  ]
+}

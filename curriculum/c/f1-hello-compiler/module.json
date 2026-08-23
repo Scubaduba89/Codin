@@ -1,0 +1,11 @@
+{
+  "id": "c-f1",
+  "track": "c",
+  "title": "Hello, Compiler",
+  "phase": 4,
+  "order": 1,
+  "summary": "cc turns text into machine code. Rewrite three tiny programs you've already written in Python - same logic, new world.",
+  "requires": [
+    "gate-p3"
+  ]
+}

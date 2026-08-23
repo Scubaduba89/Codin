@@ -1,0 +1,11 @@
+{
+  "id": "web-d4",
+  "track": "web",
+  "title": "Fetch & Render",
+  "phase": 3,
+  "order": 6,
+  "summary": "fetch a JSON file, walk it, render DOM from data - the architecture-clicks module: you'll see exactly how your dashboard turns the event log into a page.",
+  "requires": [
+    "web-d3"
+  ]
+}

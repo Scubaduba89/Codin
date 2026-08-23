@@ -1,0 +1,11 @@
+{
+  "id": "terminal-a7",
+  "track": "terminal",
+  "title": "Shell Scripting",
+  "phase": 2,
+  "order": 10,
+  "summary": "Loops, variables, and `set -euo pipefail`: turn the pipelines you type into scripts that run while you watch. Ports an A4 pipeline into a reusable tool.",
+  "requires": [
+    "terminal-a6"
+  ]
+}

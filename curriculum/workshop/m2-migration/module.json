@@ -1,0 +1,11 @@
+{
+  "id": "workshop-m2",
+  "track": "workshop",
+  "title": "M2: The Great Migration",
+  "phase": 3,
+  "order": 6,
+  "summary": "Move the platform's local progress cache into SQLite - with a Python export step still emitting events.jsonl for the dashboard. A real ETL, on your own data.",
+  "requires": [
+    "data-e3"
+  ]
+}

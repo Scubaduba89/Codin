@@ -1,0 +1,11 @@
+{
+  "id": "c-f6",
+  "track": "c",
+  "title": "fork, exec, wait",
+  "phase": 4,
+  "order": 10,
+  "summary": "How every program ever gets started: one process becomes two, one of them becomes something else. The shell capstone's engine room.",
+  "requires": [
+    "c-f5"
+  ]
+}

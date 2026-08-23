@@ -1,0 +1,11 @@
+{
+  "id": "git-b2",
+  "track": "git",
+  "title": "Branching & Merging",
+  "phase": 2,
+  "order": 8,
+  "summary": "Branches, merges, and one scripted merge conflict you'll resolve on purpose - then a real feature branch merged through a GitHub pull request.",
+  "requires": [
+    "gate-p1"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "git-b3",
+  "track": "git",
+  "title": "History & Repair",
+  "phase": 3,
+  "order": 8,
+  "summary": "git bisect hunts a planted bug, reflog resurrects 'lost' work, and you tag your platform v1.0. Nothing is ever lost.",
+  "requires": [
+    "gate-p2"
+  ]
+}
