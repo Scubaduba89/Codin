@@ -19,9 +19,12 @@ transparent: you get to see exactly what they do.
 3. See your progress rendered. Your dashboard is a folder of files in
    `docs/` - serve it locally:
 
-       cd docs && python3 -m http.server 8000
+       cd docs && python3 -m http.server 8321
 
-   Open http://localhost:8000 in a browser: tonight's XP, already on
+   (Any free port number works - if 8321 is taken on your machine,
+   pick another and match it in the address below.)
+
+   Open http://localhost:8321 in a browser: tonight's XP, already on
    the board. Press Ctrl+C in the terminal to stop the server, and
    `cd ..` to come back.
 

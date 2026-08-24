@@ -108,7 +108,7 @@ loadWorld().then((w) => {
 }).catch((e) => {
   document.getElementById("asof").textContent =
     "Couldn't load data (" + e.message + ") - serve docs/ with " +
-    "python3 -m http.server for local viewing.";
+    "python3 -m http.server 8321 for local viewing.";
 });
 </script>
 </main>

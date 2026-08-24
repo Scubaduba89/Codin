@@ -8,7 +8,8 @@ the sum of all the work visibly coming together.
 **The dashboard:** once GitHub Pages is enabled (see below), it lives at
 `https://scubaduba89.github.io/Codin/` and updates within ~10 minutes
 of any push. Locally it's always instant: `cd docs && python3 -m
-http.server`, then open http://localhost:8000.
+http.server 8321`, then open http://localhost:8321 (any free port
+works - handy when a homelab already squats on the common ones).
 
 ## The idea in five lines
 
@@ -112,7 +113,7 @@ repo is in the wrong place.
 **The public dashboard is behind my local one.** GitHub Pages caches
 for ~10 minutes after a push. Every page shows "progress as of …" so
 you always know which snapshot you're seeing. The local preview
-(`python3 -m http.server` in `docs/`) is always current.
+(`python3 -m http.server 8321` in `docs/`) is always current.
 
 **`git push` asks for a password.** Use `gh auth login` once per
 machine (HTTPS + browser login); it configures git credentials for
