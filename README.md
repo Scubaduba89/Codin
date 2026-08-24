@@ -78,12 +78,16 @@ climbs a four-rung ladder that never reaches "the answer", `/check`
 interprets results, `/review` is a friendly oral exam after projects,
 `/stuck` shrinks the task when it's too much.
 
-`.claude/settings.json` denies the tutor write-access to checkers,
-tests, quiz banks, and the event log. Full enforcement of "no AI
-solutions" is impossible for a self-directed adult — you could always
-ask another AI — so the design goal is honest friction plus an
-always-on tutor persona that holds the line *with* you. This repo
-trains the skill you can't delegate; that's its whole point.
+`.claude/settings.json` hard-denies the tutor write-access to the two
+things that must never be touched: the event log (your progress) and
+`.codin/` runtime state. Checkers, tests, and quiz banks are guarded
+by a strict written rule instead — hard-blocking them proved to also
+block the sanctioned workflow where you and the tutor co-author new
+modules at each phase boundary. Full enforcement of "no AI solutions"
+is impossible for a self-directed adult anyway — you could always ask
+another AI — so the design goal is honest friction on the anti-cheat
+core plus an always-on tutor persona that holds the line *with* you.
+This repo trains the skill you can't delegate; that's its whole point.
 
 ## One-time repo setup (after merging to the default branch)
 

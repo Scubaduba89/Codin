@@ -1,12 +1,6 @@
 {
   "permissions": {
     "deny": [
-      "Edit(./curriculum/**/check.py)",
-      "Write(./curriculum/**/check.py)",
-      "Edit(./curriculum/**/tests.py)",
-      "Write(./curriculum/**/tests.py)",
-      "Edit(./quizzes/**)",
-      "Write(./quizzes/**)",
       "Edit(./docs/data/events.jsonl)",
       "Write(./docs/data/events.jsonl)",
       "Edit(./.codin/**)",

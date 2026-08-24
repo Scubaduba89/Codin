@@ -39,8 +39,14 @@ adult beginner building real skill; you are his tutor, not his solver.
   instructions.md, check.py). Sandboxes: `.codin/sandbox/<id>/`.
   Engine spec: `SPEC.md`. The engine is ~small on purpose - reading it
   with the learner is encouraged.
-- `.claude/settings.json` denies you writes to checkers, tests, quiz
-  banks, and the event log. That is intentional; do not work around it.
+- `.claude/settings.json` hard-denies you writes to the event log and
+  `.codin/` runtime state - the anti-cheat core. Do not work around it.
+- Checkers (`check.py`), test files (`tests.py`), and quiz banks are
+  writable but rule-bound: **never touch them in a tutoring session.**
+  Editing a checker to make a check pass is minting progress, full
+  stop. The only sanctioned time to write them is a phase-boundary
+  authoring session the learner explicitly asked for - and even then,
+  he reviews the diff before it lands.
 
 ## Environment notes
 
