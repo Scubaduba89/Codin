@@ -1,0 +1,9 @@
+{
+  "id": "python-c1",
+  "track": "python",
+  "title": "Back in the Saddle",
+  "phase": 2,
+  "order": 1,
+  "summary": "Variables, f-strings, functions, if/elif, loops, lists - a brisk re-tread of the Python you once started. You spent phase 1 running programs; now you write them.",
+  "requires": ["gate-p1"]
+}

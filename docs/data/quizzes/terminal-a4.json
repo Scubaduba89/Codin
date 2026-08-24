@@ -1,0 +1,58 @@
+{
+ "module": "terminal-a4",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "Two runs: `echo hi > f.txt`, then `echo yo > f.txt`. What does f.txt hold now?",
+   "choices": [
+    "hi then yo, two lines",
+    "just yo - a single > wipes the file before writing",
+    "just hi - the second write was refused",
+    "hiyo, mashed onto one line"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2",
+   "q": "What does the pipe `|` actually connect?",
+   "choices": [
+    "two files, merging their contents",
+    "the left command's output to the right command's input",
+    "your terminal to a second terminal",
+    "a command to its manual page"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q3"
+  },
+  {
+   "key": "q4",
+   "q": "Why does `uniq -c` need `sort` in front of it?",
+   "choices": [
+    "uniq is case-sensitive and sort fixes the case",
+    "uniq only compares each line with its direct neighbor, so repeats must stand together first",
+    "uniq refuses to open unsorted files",
+    "sort strips the blank lines uniq chokes on"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q5"
+  },
+  {
+   "key": "q6"
+  },
+  {
+   "key": "q7",
+   "q": "`ls letters | wc -l` prints 23. Twenty-three WHAT?",
+   "choices": [
+    "lines inside each letter file, added up",
+    "entries in the letters folder - ls printed one name per line and wc counted lines",
+    "characters in the longest filename",
+    "words across all the files"
+   ],
+   "answer": 1
+  }
+ ]
+}

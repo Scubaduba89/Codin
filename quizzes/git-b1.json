@@ -1,0 +1,80 @@
+{
+  "module": "git-b1",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "What does `git status` report?",
+      "choices": [
+        "the full history of every commit",
+        "what's changed or new since the last commit, and what's staged",
+        "who else has cloned the repository",
+        "how big the repository is"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "Before committing, which command shows the exact line-by-line changes you're about to save? (type the command)",
+      "answer_sha": "246050b60c622e9e0a8d7429766902046711650786484d881e3cec4905a5444b",
+      "accept_shas": [
+        "246050b60c622e9e0a8d7429766902046711650786484d881e3cec4905a5444b",
+        "df087996d45b03e7eb8c133c0298fd98d35113fca26aaba58612fef3cc212cad"
+      ],
+      "hint_format": "a two-word git command"
+    },
+    {
+      "key": "q3",
+      "q": "What does `git add` actually do?",
+      "choices": [
+        "saves a permanent snapshot immediately",
+        "uploads the file to GitHub",
+        "stages changes - chooses what the NEXT commit will contain",
+        "creates a new file"
+      ],
+      "answer": 2
+    },
+    {
+      "key": "q4",
+      "q": "A commit is best described as:",
+      "choices": [
+        "a saved snapshot of chosen changes, with a message, author, and time",
+        "a backup of the whole computer",
+        "a message to other developers",
+        "a temporary copy that expires"
+      ],
+      "answer": 0
+    },
+    {
+      "key": "q5",
+      "q": "Your work is committed locally. What command sends it to GitHub? (type it)",
+      "answer_sha": "c32f2b1a66f8a79deadb74f533f3075c60a629df343b89e8c4477d40fa960ba8",
+      "accept_shas": [
+        "c32f2b1a66f8a79deadb74f533f3075c60a629df343b89e8c4477d40fa960ba8",
+        "d107ea3629c326718876f07356a48dea26f123742f8bf44ce75f8f805cf9a37d"
+      ],
+      "hint_format": "a two-word git command"
+    },
+    {
+      "key": "q6",
+      "q": "Your phone committed progress last night. What command brings it to your desktop? (type it)",
+      "answer_sha": "b3244c57f1833c0048cf97f0625769390a1edda5807f6997734427646d10812c",
+      "accept_shas": [
+        "7954ec516d3c8d516ca0e3e7b7099887aae0bd3e292575d470d1eb3da58e6073",
+        "b3244c57f1833c0048cf97f0625769390a1edda5807f6997734427646d10812c",
+        "c5f5571c2c9c437485d5c572a3ad9efe51db8839cae2414732f051eaca6293fb"
+      ],
+      "hint_format": "a two-word git command"
+    },
+    {
+      "key": "q7",
+      "q": "What does listing `*.log` in a .gitignore file do?",
+      "choices": [
+        "deletes all .log files",
+        "keeps matching files out of git status and staging - they stay on disk, unmentioned",
+        "encrypts the log files",
+        "commits log files automatically"
+      ],
+      "answer": 1
+    }
+  ]
+}

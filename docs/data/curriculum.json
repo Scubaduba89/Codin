@@ -203,6 +203,76 @@
    ]
   },
   {
+   "id": "git-b1",
+   "track": "git",
+   "title": "The Daily Loop",
+   "phase": 1,
+   "order": 3,
+   "summary": "status, add, commit, pull, push - the five moves you'll make every day for the rest of your computing life. Practiced on toy repos first, then for real: this module ends with a commit of yours on GitHub that was never practice.",
+   "requires": [
+    "terminal-a1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/git/b1-daily-loop",
+   "exercises": [
+    {
+     "id": "git-b1-01",
+     "title": "Three Moves (status, add, commit)",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-02",
+     "title": "The Story So Far (log & diff)",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-03",
+     "title": "The Ignore List",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-04",
+     "title": "Staging Is a Choice",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-05",
+     "title": "Round Trip (pull & push)",
+     "type": "standard",
+     "minutes": 15,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    },
+    {
+     "id": "git-b1-06",
+     "title": "The Real Thing",
+     "type": "standard",
+     "minutes": 12,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
    "id": "terminal-a3",
    "track": "terminal",
    "title": "Permissions",
@@ -255,6 +325,76 @@
    ]
   },
   {
+   "id": "terminal-a4",
+   "track": "terminal",
+   "title": "Pipes & Text Streams",
+   "phase": 1,
+   "order": 5,
+   "summary": "> and >> aim output at files; | snaps small tools into pipelines. grep, sort, uniq, cut, wc - then you mine a real server log for its top talkers, one line, no code.",
+   "requires": [
+    "terminal-a3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a4-pipes",
+   "exercises": [
+    {
+     "id": "terminal-a4-01",
+     "title": "One Arrow, Two Arrows",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-02",
+     "title": "Count Without Looking",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-03",
+     "title": "Needles in the Haystack",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-04",
+     "title": "Sort, Then Count",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-05",
+     "title": "Slicing Columns",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-06",
+     "title": "The Log Boss",
+     "type": "challenge",
+     "minutes": 20,
+     "phone": true,
+     "xp": 50,
+     "requires": []
+    }
+   ]
+  },
+  {
    "id": "gates",
    "track": "gates",
    "title": "Phase Gates",
@@ -280,6 +420,67 @@
       "terminal-a4",
       "git-b1"
      ]
+    }
+   ]
+  },
+  {
+   "id": "python-c1",
+   "track": "python",
+   "title": "Back in the Saddle",
+   "phase": 2,
+   "order": 1,
+   "summary": "Variables, f-strings, functions, if/elif, loops, lists - a brisk re-tread of the Python you once started. You spent phase 1 running programs; now you write them.",
+   "requires": [
+    "gate-p1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c1-refresher",
+   "exercises": [
+    {
+     "id": "python-c1-01",
+     "title": "Hello Again",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-02",
+     "title": "Return to Sender",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-03",
+     "title": "Numbers and Megaphones",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-04",
+     "title": "Fork in the Road",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-05",
+     "title": "Round and Round",
+     "type": "standard",
+     "minutes": 15,
+     "phone": false,
+     "xp": 25,
+     "requires": []
     }
    ]
   },

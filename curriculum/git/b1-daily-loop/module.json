@@ -1,0 +1,9 @@
+{
+  "id": "git-b1",
+  "track": "git",
+  "title": "The Daily Loop",
+  "phase": 1,
+  "order": 3,
+  "summary": "status, add, commit, pull, push - the five moves you'll make every day for the rest of your computing life. Practiced on toy repos first, then for real: this module ends with a commit of yours on GitHub that was never practice.",
+  "requires": ["terminal-a1"]
+}

@@ -1,0 +1,87 @@
+{
+  "module": "terminal-a4",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "Two runs: `echo hi > f.txt`, then `echo yo > f.txt`. What does f.txt hold now?",
+      "choices": [
+        "hi then yo, two lines",
+        "just yo - a single > wipes the file before writing",
+        "just hi - the second write was refused",
+        "hiyo, mashed onto one line"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "What does the pipe `|` actually connect?",
+      "choices": [
+        "two files, merging their contents",
+        "the left command's output to the right command's input",
+        "your terminal to a second terminal",
+        "a command to its manual page"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q3",
+      "q": "Which grep flag INVERTS the match - printing only lines that do NOT contain the word? (dash included)",
+      "answer_sha": "81c36ccd44ef18baabad6e2d87038b72d606263bd6a3432b964a872023654fff",
+      "hint_format": "a dash and one letter",
+      "accept_shas": [
+        "81c36ccd44ef18baabad6e2d87038b72d606263bd6a3432b964a872023654fff",
+        "4c94485e0c21ae6c41ce1dfe7b6bfaceea5ab68e40a2476f50208e526f506080",
+        "0d74a19e10d0f4fdb4963527536bdbe1fda32ffdde19ee9ca29af47a101b362e"
+      ]
+    },
+    {
+      "key": "q4",
+      "q": "Why does `uniq -c` need `sort` in front of it?",
+      "choices": [
+        "uniq is case-sensitive and sort fixes the case",
+        "uniq only compares each line with its direct neighbor, so repeats must stand together first",
+        "uniq refuses to open unsorted files",
+        "sort strips the blank lines uniq chokes on"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q5",
+      "q": "In `cut -d: -f1`, which flag names the separator character? (dash included)",
+      "answer_sha": "50e09407a18bedd64baf0b99825a8178d7446731615b85452ea6b99573469dcc",
+      "hint_format": "a dash and one letter",
+      "accept_shas": [
+        "50e09407a18bedd64baf0b99825a8178d7446731615b85452ea6b99573469dcc",
+        "18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4",
+        "73656272a717b904927b1b89e7a67e1ba4b7b084d52e827056d00e8dcaf5756e"
+      ]
+    },
+    {
+      "key": "q6",
+      "q": "After `uniq -c`, which sort flags reorder the tally biggest-count-first, comparing as numbers?",
+      "answer_sha": "edf266d1f8579b5a151963b28461e11f46e502c5b2742df986f161b936be0e59",
+      "hint_format": "a dash and two letters, as you'd type them",
+      "accept_shas": [
+        "edf266d1f8579b5a151963b28461e11f46e502c5b2742df986f161b936be0e59",
+        "48230fcd30cca5b4b77762db61ae3a765e82baaea30d8a6e9e1b2fdc7b0df432",
+        "e45b69375202f1db6935688ea89111de70fbdb5097234526afe9e0c781c65626",
+        "50fa28eceb6f8bc869996f7f133caf3bf988a32eef1a81ca3abcdf1a55848ea6",
+        "584b5edc3da093d6bb491a64d39e85b8bec3552b3196eb64abcc77858645d6f1",
+        "6194e73eb25916046397e515de98f4e4357e06af9f3054d347ffe82aadfd8bf2",
+        "b1c6313e613a6d3d7ce4a692d68a204eb83ac580cf7db31b79de5ccc1ed69c9f",
+        "3b906bf84dd88a3b9eb2bbfd5071ddde6f1db4c9fea0f9b26b5141c5e4ea3ad1"
+      ]
+    },
+    {
+      "key": "q7",
+      "q": "`ls letters | wc -l` prints 23. Twenty-three WHAT?",
+      "choices": [
+        "lines inside each letter file, added up",
+        "entries in the letters folder - ls printed one name per line and wc counted lines",
+        "characters in the longest filename",
+        "words across all the files"
+      ],
+      "answer": 1
+    }
+  ]
+}
