@@ -7,8 +7,15 @@ same on desktop Linux and Termux.
 """
 
 import argparse
+import signal
 import sys
 from pathlib import Path
+
+# behave like a good unix citizen when piped into head/grep
+try:
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+except (AttributeError, ValueError):
+    pass
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
