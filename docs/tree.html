@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codin — Skill Tree</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/rules.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="brand">COD<span>IN</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a class="here" href="tree.html">Skill Tree</a>
+    <a href="artifacts.html">Artifacts</a>
+    <a href="journey.html">Journey</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+  <button id="themeBtn" title="toggle light/dark">◐</button>
+</header>
+<main>
+  <p class="asof" id="asof">loading…</p>
+  <p class="muted small">The whole map, always visible. Solid cards are
+  open; dashed ones are the future - real folders in the repo already,
+  fogged until their phase. Two summits are marked in gold.
+  <em>(This CSS-grid tree is version 1 on purpose: rebuilding it as a
+  real SVG map is exercise <code>web-d5</code> - yours.)</em></p>
+  <div id="tree"></div>
+
+<script>
+const TRACK_ORDER = [
+  ["setup", "Setup"], ["terminal", "Terminal"], ["git", "Git"],
+  ["python", "Python"], ["web", "Web — Dashboard Lab"],
+  ["data", "Data"], ["c", "C — The Key to the Machine"],
+  ["machine", "How Linux Actually Works"], ["workshop", "Workshop"],
+  ["homelab", "Homelab"], ["gates", "Phase Gates"],
+];
+const SUMMITS = { "c-f7": 1, "homelab-h1": 1 };
+const REPO_URL = "https://github.com/Scubaduba89/Codin";
+
+loadWorld().then((w) => {
+  const s = w.state;
+  asOf(s);
+  const met = (reqs) => reqs.every((r) =>
+    s.completed_modules.indexOf(r) >= 0 || s.done[r]);
+  const byTrack = {};
+  for (const m of w.curriculum.modules) {
+    (byTrack[m.track] = byTrack[m.track] || []).push(m);
+  }
+  const root = document.getElementById("tree");
+  for (const [track, label] of TRACK_ORDER) {
+    const mods = byTrack[track];
+    if (!mods) continue;
+    const sec = el("section", "track");
+    sec.appendChild(el("h3", null, label));
+    const grid = el("div", "tgrid");
+    for (const m of mods) {
+      const total = m.exercises.length;
+      const done = m.exercises.filter((e) => s.done[e.id]).length;
+      const unlocked = met(m.requires);
+      let cls = "node", meta = "";
+      if (!total) {
+        cls += " fog";
+        meta = "future — phase " + m.phase;
+      } else if (done === total) {
+        cls += " done";
+        meta = total + "/" + total + " · complete";
+      } else if (done > 0) {
+        cls += " progress";
+        meta = done + "/" + total + " in progress";
+      } else if (!unlocked) {
+        cls += " locked";
+        meta = "unlocks after " + m.requires.join(", ");
+      } else {
+        meta = total + " exercises · ready";
+      }
+      if (m.elective) { cls += " elective"; meta += " · optional"; }
+      if (SUMMITS[m.id]) { cls += " summit"; meta += " · SUMMIT"; }
+      const node = el("div", cls);
+      node.appendChild(el("div", "nid", m.id));
+      const title = el("div", "ntitle");
+      if (done === total && total && m.dir) {
+        const a = el("a", null, m.title);
+        a.href = REPO_URL + "/tree/HEAD/" + m.dir;
+        a.title = "see the real folder this node stands for";
+        title.appendChild(a);
+      } else {
+        title.textContent = m.title;
+      }
+      node.appendChild(title);
+      node.appendChild(el("div", "nmeta", meta));
+      if (total && done > 0 && done < total) {
+        const p = el("div", "prog"), f = el("div");
+        f.style.width = (100 * done) / total + "%";
+        p.appendChild(f);
+        node.appendChild(p);
+      }
+      node.title = m.summary;
+      grid.appendChild(node);
+    }
+    sec.appendChild(grid);
+    root.appendChild(sec);
+  }
+}).catch((e) => {
+  document.getElementById("asof").textContent =
+    "Couldn't load data (" + e.message + ") - serve docs/ with " +
+    "python3 -m http.server 8321 for local viewing.";
+});
+</script>
+</main>
+</body>
+</html>

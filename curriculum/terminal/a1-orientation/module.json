@@ -1,0 +1,9 @@
+{
+  "id": "terminal-a1",
+  "track": "terminal",
+  "title": "The Terminal Is a Place",
+  "phase": 1,
+  "order": 1,
+  "summary": "pwd, cd, ls, paths, tab completion, and the manual. The terminal stops being a void and becomes a place you can move through.",
+  "requires": ["setup-01", "setup-02", "setup-03", "setup-04"]
+}

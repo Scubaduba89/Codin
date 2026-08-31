@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codin — Engine Conformance</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/rules.js"></script>
+<script src="js/badges.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="brand">COD<span>IN</span></div>
+  <nav><a href="index.html">← back to the dashboard</a></nav>
+</header>
+<main>
+  <div class="card">
+    <h2>JS engine vs the shared fixture</h2>
+    <p class="muted small">The dashboard and the CLI implement one spec
+    (SPEC.md). This page replays every fixture case through the
+    browser engine - if anything here is red, the two engines have
+    diverged and the fixture is the referee.</p>
+    <table class="fixtable" id="results"></table>
+    <p id="verdict"></p>
+  </div>
+<script>
+"use strict";
+const table = document.getElementById("results");
+const row = (name, ok, detail) => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = "<td>" + name + "</td><td class='" + (ok ? "ok'>PASS" :
+    "bad'>FAIL") + "</td><td class='muted'>" + (detail || "") + "</td>";
+  table.appendChild(tr);
+};
+fetch("data/fixture.json?v=" + Date.now()).then((r) => r.json()).then((fx) => {
+  let bad = 0;
+  for (const c of fx.cases) {
+    const lines = c.events_raw || c.events.map((e) => JSON.stringify(e));
+    const parsed = CodinRules.parseLines(lines);
+    const state = CodinRules.replay(parsed.events, fx.curriculum);
+    const earned = CodinBadges.evaluate(fx.badges, state);
+    const got = {
+      xp: state.xp, level: state.level.number,
+      badges: earned.map((b) => b.key).sort().join(","),
+      completed: state.completed_modules.slice().sort().join(","),
+      ignored: parsed.ignored,
+    };
+    const want = {
+      xp: c.expect.xp, level: c.expect.level,
+      badges: c.expect.badges.slice().sort().join(","),
+      completed: c.expect.completed_modules.slice().sort().join(","),
+      ignored: c.expect.ignored,
+    };
+    const ok = JSON.stringify(got) === JSON.stringify(want);
+    if (!ok) bad++;
+    row(c.name, ok, ok ? "" : "want " + JSON.stringify(want) +
+        " got " + JSON.stringify(got));
+  }
+  document.getElementById("verdict").innerHTML = bad
+    ? "<span class='bad'>" + bad + " case(s) diverged.</span>"
+    : "<span class='ok'>All " + fx.cases.length +
+      " cases green - both engines agree.</span>";
+}).catch((e) => {
+  row("fixture load", false, String(e) +
+    " - run `python3 codin.py index` to regenerate docs/data/fixture.json");
+});
+</script>
+</main>
+</body>
+</html>

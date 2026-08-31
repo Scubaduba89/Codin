@@ -1,0 +1,11 @@
+{
+  "id": "workshop-m4",
+  "track": "workshop",
+  "title": "M4: Write a Badge Rule",
+  "phase": 3,
+  "order": 10,
+  "summary": "Add a badge rule to docs/data/badges.json (or invent a new rule kind) - and watch it award itself retroactively from history you already lived.",
+  "requires": [
+    "python-c6"
+  ]
+}

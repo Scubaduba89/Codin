@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codin — Artifacts</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/rules.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="brand">COD<span>IN</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tree.html">Skill Tree</a>
+    <a class="here" href="artifacts.html">Artifacts</a>
+    <a href="journey.html">Journey</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+  <button id="themeBtn" title="toggle light/dark">◐</button>
+</header>
+<main>
+  <p class="asof" id="asof">loading…</p>
+  <p class="muted small">The portfolio: things that exist because you
+  built them. Every card here is a folder of real files in the repo.</p>
+
+  <section class="card" id="thread"></section>
+  <div class="bgrid" id="gallery"></div>
+  <div class="empty" id="empty" hidden>
+    <div class="big">🌱</div>
+    <p>No artifacts yet — by design. Your first one grows out of the
+    Terminal track (<strong>The Toolbelt</strong>), and
+    <code>projects/hello.txt</code> from setup-02 is already its seed.</p>
+  </div>
+
+<script>
+const REPO_URL = "https://github.com/Scubaduba89/Codin";
+/* the thread project: one program, retold as you grow */
+const THREAD = [
+  ["terminal-a4-06", "shell pipeline", "the log boss, in pure pipes"],
+  ["python-c2-04", "Python", "same problem, real data structures"],
+  ["python-c5-05", "shipped CLI", "flashcards - a whole app"],
+  ["workshop-m2-01", "SQLite", "the platform's own data, migrated by you"],
+  ["c-f1-02", "C", "same logic, no safety net"],
+  ["c-f7-01", "your own shell", "the summit"],
+];
+
+loadWorld().then((w) => {
+  const s = w.state;
+  asOf(s);
+
+  // thread lineage card
+  const th = document.getElementById("thread");
+  th.appendChild(el("h2", null, "The thread"));
+  th.appendChild(el("p", "muted small",
+    "One problem keeps returning as your languages grow. Watch it age:"));
+  const line = el("p");
+  THREAD.forEach(([id, label, hint], i) => {
+    if (i) line.appendChild(el("span", "muted", "  →  "));
+    const hit = !!s.done[id];
+    const sp = el("span", hit ? "pill" : "muted", label);
+    sp.title = hint + (hit ? " ✔" : " (ahead of you)");
+    line.appendChild(sp);
+  });
+  th.appendChild(line);
+
+  // artifact-tier badges as gallery cards
+  const gallery = document.getElementById("gallery");
+  const earnedArtifacts = w.earned.filter((b) => b.tier === "artifact");
+  for (const b of earnedArtifacts) {
+    const card = el("div", "badge artifact");
+    card.appendChild(el("div", "bic", b.icon));
+    card.appendChild(el("div", "bname", b.name));
+    card.appendChild(el("div", "bdesc", b.desc));
+    card.appendChild(el("div", "bdate", "earned " + fmtDate(b.earned_ts)));
+    const a = el("a", "small", "see it in the repo →");
+    a.href = REPO_URL;
+    card.appendChild(a);
+    gallery.appendChild(card);
+  }
+  if (!earnedArtifacts.length) {
+    document.getElementById("empty").hidden = false;
+  }
+}).catch((e) => {
+  document.getElementById("asof").textContent =
+    "Couldn't load data (" + e.message + ").";
+});
+</script>
+</main>
+</body>
+</html>

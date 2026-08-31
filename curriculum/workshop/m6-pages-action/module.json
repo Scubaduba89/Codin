@@ -1,0 +1,12 @@
+{
+  "id": "workshop-m6",
+  "track": "workshop",
+  "title": "M6: Own Your Pipeline",
+  "phase": 5,
+  "order": 4,
+  "summary": "Elective: replace plain /docs publishing with a GitHub Action you wrote and understand.",
+  "requires": [
+    "workshop-m5"
+  ],
+  "elective": true
+}

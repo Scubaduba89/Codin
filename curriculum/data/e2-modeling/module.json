@@ -1,0 +1,11 @@
+{
+  "id": "data-e2",
+  "track": "data",
+  "title": "Modeling & JOINs",
+  "phase": 3,
+  "order": 3,
+  "summary": "Design tables that relate - including this platform's own schema on paper first - then JOIN them. Earns JOINed Up.",
+  "requires": [
+    "data-e1"
+  ]
+}

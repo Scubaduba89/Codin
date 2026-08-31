@@ -1,0 +1,91 @@
+{
+  "module": "python-c1",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "In print(f\"{count} coins\"), what appears where the braces are?",
+      "choices": [
+        "the letters c-o-u-n-t, exactly as typed",
+        "the value the variable count holds",
+        "an error - braces aren't allowed in strings",
+        "nothing - the braces are stripped out"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "A function hands its result back to the caller with which keyword?",
+      "answer_sha": "7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+      "hint_format": "one Python keyword",
+      "accept_shas": [
+        "7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+        "f1559364353eb143133c96d228054ac3c047330d8931ccf5a29ff5962b554373",
+        "c71f509742ea4e2ea064e6dcb1424a797e25bb887e54322be4a5a6c8f080fdce",
+        "9e4f4aadada7165690912b25a2b19fb36d06df2b2dbfdc429e23966810637f4c",
+        "0c6c3db9960a6aa0e2c3fe1ad029fd7f2ef99dd5a9e5af8378db4f0a16606f14",
+        "ade95c284e21c69be1ce80cc12f82adf63ac280dba6773aba1a684aef30068fa"
+      ]
+    },
+    {
+      "key": "q3",
+      "q": "A function's body is only print(\"hi\") - no return line. What does calling it evaluate to?",
+      "choices": [
+        "the string \"hi\"",
+        "True",
+        "None",
+        "it's a syntax error"
+      ],
+      "answer": 2
+    },
+    {
+      "key": "q4",
+      "q": "Which operator gives the remainder of a division - the one behind every even/odd test?",
+      "answer_sha": "bbf3f11cb5b43e700273a78d12de55e4a7eab741ed2abf13787a4d2dc832b8ec",
+      "hint_format": "the symbol itself, or its name",
+      "accept_shas": [
+        "bbf3f11cb5b43e700273a78d12de55e4a7eab741ed2abf13787a4d2dc832b8ec",
+        "e55cffc81a5ad8cfe85239d944a3ae9513645a9eed79bc884f51b80b2760fc46",
+        "93401e39d3641332017a4a2b964149256f3ad86ea0f5f394461d7cc0a5367361",
+        "6aa905bf176b6d2a989a835f4c11c2a61bd8c35268258f17f169ee0755fdc628",
+        "fd86717aca41c558c78c19ab2b50691179a57ba5200bc7e3317be70efd4043ad",
+        "28411ad436cbe38cf87e896018c1878be4ed2760d4eaab079eb8d002dbc90301",
+        "0ca2145fc8709152ec4a5b32df0c58a6538ec39ce50435d501f976e7066ef23b",
+        "415aafe1455cd9adab301d984dbd323a6183aa4dddedac2043ff9816bb063cdd",
+        "4bfc77f9d12632c82f235a7ea583cc3fd784783da4e055a91c0bade8d551dc6c",
+        "de8a9326f91ad990c724c6757e1242f073fbdfcd99dde0cfa3e15e6ed6b8f317"
+      ]
+    },
+    {
+      "key": "q5",
+      "q": "In an if / elif / else chain, which branches actually run?",
+      "choices": [
+        "every branch whose condition is true",
+        "only the first branch whose condition is true (else if none are)",
+        "the else always runs, plus at most one other",
+        "all of them, top to bottom"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q6",
+      "q": "What does `for n in [3, 1, 4]:` do with its body?",
+      "choices": [
+        "runs it 3 times, with n = 3, then 1, then 4",
+        "runs it once, with n = the whole list",
+        "runs it 4 times, counting n = 1, 2, 3, 4",
+        "runs it 8 times (3 + 1 + 4)"
+      ],
+      "answer": 0
+    },
+    {
+      "key": "q7",
+      "q": "What does len([10, 20, 30]) evaluate to?",
+      "answer_sha": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+      "hint_format": "a number",
+      "accept_shas": [
+        "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+        "8b5b9db0c13db24256c829aa364aa90c6d2eba318b9232a4ab9313b954d3555f"
+      ]
+    }
+  ]
+}

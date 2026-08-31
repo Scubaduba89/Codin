@@ -1,0 +1,11 @@
+{
+  "id": "terminal-a6",
+  "track": "terminal",
+  "title": "Processes & Jobs",
+  "phase": 2,
+  "order": 6,
+  "summary": "Programs become processes: ps, top, Ctrl+C vs Ctrl+Z, jobs, fg, kill. The operating-system drip-feed begins here.",
+  "requires": [
+    "terminal-a5"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "terminal-a2",
+  "track": "terminal",
+  "title": "Files & Folders",
+  "phase": 1,
+  "order": 2,
+  "summary": "mkdir, touch, cp, mv, rm, and * patterns. The filesystem stops being scenery: you build it, rearrange it, clean it up - and tame one gloriously messy downloads folder.",
+  "requires": ["terminal-a1"]
+}

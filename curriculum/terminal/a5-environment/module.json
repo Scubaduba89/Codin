@@ -1,0 +1,11 @@
+{
+  "id": "terminal-a5",
+  "track": "terminal",
+  "title": "Environment & PATH",
+  "phase": 2,
+  "order": 3,
+  "summary": "Where commands come from: environment variables, $PATH, aliases, and your shell's config files. Ends with your own bin/ on the PATH.",
+  "requires": [
+    "gate-p1"
+  ]
+}

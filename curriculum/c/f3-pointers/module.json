@@ -1,0 +1,11 @@
+{
+  "id": "c-f3",
+  "track": "c",
+  "title": "Pointers & Memory",
+  "phase": 4,
+  "order": 4,
+  "summary": "The famous cliff, taken in the smallest possible steps: predict-before-run worksheets, valgrind as a friend, and segfaults celebrated as specimens.",
+  "requires": [
+    "c-f2"
+  ]
+}

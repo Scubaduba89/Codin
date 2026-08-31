@@ -1,0 +1,58 @@
+{
+ "module": "git-b1",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "What does `git status` report?",
+   "choices": [
+    "the full history of every commit",
+    "what's changed or new since the last commit, and what's staged",
+    "who else has cloned the repository",
+    "how big the repository is"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2"
+  },
+  {
+   "key": "q3",
+   "q": "What does `git add` actually do?",
+   "choices": [
+    "saves a permanent snapshot immediately",
+    "uploads the file to GitHub",
+    "stages changes - chooses what the NEXT commit will contain",
+    "creates a new file"
+   ],
+   "answer": 2
+  },
+  {
+   "key": "q4",
+   "q": "A commit is best described as:",
+   "choices": [
+    "a saved snapshot of chosen changes, with a message, author, and time",
+    "a backup of the whole computer",
+    "a message to other developers",
+    "a temporary copy that expires"
+   ],
+   "answer": 0
+  },
+  {
+   "key": "q5"
+  },
+  {
+   "key": "q6"
+  },
+  {
+   "key": "q7",
+   "q": "What does listing `*.log` in a .gitignore file do?",
+   "choices": [
+    "deletes all .log files",
+    "keeps matching files out of git status and staging - they stay on disk, unmentioned",
+    "encrypts the log files",
+    "commits log files automatically"
+   ],
+   "answer": 1
+  }
+ ]
+}

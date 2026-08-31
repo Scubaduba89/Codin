@@ -1,0 +1,9 @@
+{
+  "id": "setup",
+  "track": "setup",
+  "title": "Bootstrap",
+  "phase": 0,
+  "order": 1,
+  "summary": "Wire up your machines, make your first real commit, meet your tutor. Five small wins and the whole loop - learn, verify, commit, sync, see it rendered - is running.",
+  "requires": []
+}

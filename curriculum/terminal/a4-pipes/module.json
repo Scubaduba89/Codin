@@ -1,0 +1,9 @@
+{
+  "id": "terminal-a4",
+  "track": "terminal",
+  "title": "Pipes & Text Streams",
+  "phase": 1,
+  "order": 5,
+  "summary": "> and >> aim output at files; | snaps small tools into pipelines. grep, sort, uniq, cut, wc - then you mine a real server log for its top talkers, one line, no code.",
+  "requires": ["terminal-a3"]
+}

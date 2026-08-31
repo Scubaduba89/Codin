@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codin — Journey</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/rules.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="brand">COD<span>IN</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tree.html">Skill Tree</a>
+    <a href="artifacts.html">Artifacts</a>
+    <a class="here" href="journey.html">Journey</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+  <button id="themeBtn" title="toggle light/dark">◐</button>
+</header>
+<main>
+  <p class="asof" id="asof">loading…</p>
+
+  <section class="card">
+    <h2>Badge case</h2>
+    <div class="bgrid" id="badges"></div>
+  </section>
+
+  <section class="card">
+    <h2>Practice record</h2>
+    <p class="muted small" id="practice-line"></p>
+    <div id="heat"></div>
+  </section>
+
+  <section class="card">
+    <h2>The whole story</h2>
+    <div class="filters">
+      <select id="ftrack"><option value="">every track</option></select>
+      <select id="fdevice"><option value="">every device</option></select>
+    </div>
+    <ul class="wins" id="timeline"></ul>
+  </section>
+
+<script>
+loadWorld().then((w) => {
+  const s = w.state;
+  asOf(s);
+
+  // badge case: earned + at most 3 teasers; distant locks stay hidden
+  const grid = document.getElementById("badges");
+  for (const b of w.earned) {
+    const card = el("div", "badge" + (b.tier === "artifact" ? " artifact" : ""));
+    card.appendChild(el("div", "bic", b.icon));
+    card.appendChild(el("div", "bname", b.name));
+    card.appendChild(el("div", "bdesc", b.desc));
+    card.appendChild(el("div", "bdate", fmtDate(b.earned_ts)));
+    grid.appendChild(card);
+  }
+  for (const b of CodinBadges.nextTeasers(w.badgeDefs, s, 3)) {
+    const card = el("div", "badge tease");
+    card.appendChild(el("div", "bic", b.icon));
+    card.appendChild(el("div", "bname", b.name));
+    card.appendChild(el("div", "bdesc", b.desc));
+    card.appendChild(el("div", "bdate muted", "within reach"));
+    grid.appendChild(card);
+  }
+  if (!w.earned.length) {
+    grid.appendChild(el("p", "muted",
+      "Empty for now - the first badge is minutes away."));
+  }
+
+  // practice heatmap, 26 weeks
+  const weekAgo = new Date(Date.now() - 6 * 86400000).toISOString().slice(0, 10);
+  const last7 = s.active_days.filter((d) => d >= weekAgo).length;
+  document.getElementById("practice-line").textContent =
+    s.active_days.length
+      ? s.active_days.length + " active days so far · " + last7 +
+        " of the last 7"
+      : "your first active day is today, if you want it";
+  document.getElementById("heat").appendChild(heatmap(s.active_days, 26));
+
+  // timeline with filters
+  const trackOf = (id) => id.split("-")[0].replace(/^review:.*/, "review");
+  const tracks = new Set(), devices = new Set();
+  for (const evn of s.counted) {
+    tracks.add(trackOf(evn.id));
+    devices.add(evn.device);
+  }
+  const ft = document.getElementById("ftrack"),
+        fd = document.getElementById("fdevice");
+  for (const t of [...tracks].sort()) {
+    ft.appendChild(new Option(t, t));
+  }
+  for (const d of [...devices].sort()) {
+    fd.appendChild(new Option(d, d));
+  }
+  const tl = document.getElementById("timeline");
+  function render() {
+    tl.textContent = "";
+    const rows = s.counted
+      .filter((e) => !ft.value || trackOf(e.id) === ft.value)
+      .filter((e) => !fd.value || e.device === fd.value)
+      .slice(-200).reverse();
+    for (const evn of rows) {
+      const li = el("li");
+      li.appendChild(el("span", "when", fmtDate(evn.ts)));
+      li.appendChild(el("span", null,
+        (evn.type === "review" ? "review · " : evn.type === "pass" ? "" :
+         evn.type + " · ") + evn.id));
+      li.appendChild(el("span", "muted small", evn.device));
+      li.appendChild(el("span", "xp", "+" + evn.xp));
+      tl.appendChild(li);
+    }
+    if (!rows.length) {
+      tl.appendChild(el("p", "muted", "nothing here yet"));
+    }
+  }
+  ft.onchange = fd.onchange = render;
+  render();
+}).catch((e) => {
+  document.getElementById("asof").textContent =
+    "Couldn't load data (" + e.message + ").";
+});
+</script>
+</main>
+</body>
+</html>

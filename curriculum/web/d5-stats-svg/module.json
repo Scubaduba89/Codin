@@ -1,0 +1,11 @@
+{
+  "id": "web-d5",
+  "track": "web",
+  "title": "Stats Page & the SVG Tree",
+  "phase": 3,
+  "order": 11,
+  "summary": "The project: a wholly-yours stats page, plus rewriting the skill tree in SVG - the upgrade the scaffold deliberately left for you.",
+  "requires": [
+    "web-d4"
+  ]
+}

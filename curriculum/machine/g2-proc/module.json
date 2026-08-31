@@ -1,0 +1,11 @@
+{
+  "id": "machine-g2",
+  "track": "machine",
+  "title": "/proc Spelunking",
+  "phase": 4,
+  "order": 5,
+  "summary": "The kernel narrates itself under /proc: live process anatomy, cmdlines, file descriptors. Desktop-first exploring.",
+  "requires": [
+    "machine-g1"
+  ]
+}

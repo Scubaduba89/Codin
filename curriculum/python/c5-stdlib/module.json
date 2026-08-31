@@ -1,0 +1,11 @@
+{
+  "id": "python-c5",
+  "track": "python",
+  "title": "Stdlib Superpowers",
+  "phase": 2,
+  "order": 9,
+  "summary": "pathlib, subprocess (Python driving git!), http.server, argparse - and shipping the flashcards CLI, your first complete app.",
+  "requires": [
+    "python-c4"
+  ]
+}

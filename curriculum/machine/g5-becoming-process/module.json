@@ -1,0 +1,12 @@
+{
+  "id": "machine-g5",
+  "track": "machine",
+  "title": "How Programs Become Processes",
+  "phase": 4,
+  "order": 12,
+  "summary": "ldd, readelf, and strace -f on your own shell running ls - narrated end to end, in your own words. The Whole Story badge.",
+  "requires": [
+    "c-f5",
+    "machine-g3"
+  ]
+}

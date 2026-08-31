@@ -1,0 +1,11 @@
+{
+  "id": "terminal-a8",
+  "track": "terminal",
+  "title": "The Toolbelt",
+  "phase": 3,
+  "order": 12,
+  "summary": "A project: build the personal command toolbelt in bin/ you'll actually use - and earn the Toolsmith badge.",
+  "requires": [
+    "terminal-a7"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "module": "terminal-a2",
+  "questions": [
+    {
+      "key": "q1",
+      "q": "You need a new folder called `projects`. Which command makes it?",
+      "choices": [
+        "touch projects",
+        "mkdir projects",
+        "cp projects",
+        "new projects"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q2",
+      "q": "Which mkdir flag builds a whole nested chain like `a/b/c` in one command? (dash included)",
+      "answer_sha": "567479c447e472328522a1d759aabb9b579e4522a6da547c983d29e94c1604c2",
+      "hint_format": "a dash and one letter",
+      "accept_shas": [
+        "148de9c5a7a44d19e56cd9ae1a554bf67847afb0c58f6e12fa29ac7ddfca9940",
+        "567479c447e472328522a1d759aabb9b579e4522a6da547c983d29e94c1604c2",
+        "77d6abc0cb868261b999b741289a08f8e72e7a22258172fe165f0d44fa1c4652"
+      ]
+    },
+    {
+      "key": "q3",
+      "q": "`journal.txt` does not exist. What does `mv notes.txt journal.txt` do?",
+      "choices": [
+        "copies notes.txt into journal.txt, keeping both",
+        "renames notes.txt to journal.txt",
+        "moves notes.txt into a folder called journal.txt",
+        "errors, because journal.txt does not exist"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q4",
+      "q": "`cp album backup/` complains; `cp -r album backup/` works. What does `-r` change?",
+      "choices": [
+        "it retries automatically if the copy fails",
+        "it copies the folder and everything inside it, recursively",
+        "it renames the copy as it goes",
+        "it copies read-only files too"
+      ],
+      "answer": 1
+    },
+    {
+      "key": "q5",
+      "q": "You rm'd the wrong file on a real machine. Where did it go?",
+      "choices": [
+        "the trash can - restore it from there",
+        "a hidden .trash folder in your home",
+        "it's simply gone; rm has no undo",
+        "nowhere - git keeps a copy automatically"
+      ],
+      "answer": 2
+    },
+    {
+      "key": "q6",
+      "q": "Write the shell pattern that matches every file ending in `.txt`.",
+      "answer_sha": "79e81fa3bb6452612511b469702f4078dbe849c35297b08933d3fca8eeacde64",
+      "hint_format": "the pattern itself, star included",
+      "accept_shas": [
+        "79e81fa3bb6452612511b469702f4078dbe849c35297b08933d3fca8eeacde64",
+        "d773e10e3590eb08f25ea634164d25b8823f8ba85a8cde0d9db2135e500af563",
+        "2e6365efb5c851d57bfd8fbfa3b42f4db7869bb6e71ed6481b977f0b11894b55"
+      ]
+    },
+    {
+      "key": "q7",
+      "q": "Before `mv *.pdf pdfs/` runs, what actually happens to `*.pdf`?",
+      "choices": [
+        "mv searches every subfolder for pdf files",
+        "the shell expands it into the list of matching names, then hands that list to mv",
+        "mv receives the literal five-character name `*.pdf`",
+        "nothing - the star is decoration"
+      ],
+      "answer": 1
+    }
+  ]
+}

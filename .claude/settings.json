@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(./docs/data/events.jsonl)",
+      "Write(./docs/data/events.jsonl)",
+      "Edit(./.codin/**)",
+      "Write(./.codin/**)"
+    ]
+  }
+}

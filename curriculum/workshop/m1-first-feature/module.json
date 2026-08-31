@@ -1,0 +1,12 @@
+{
+  "id": "workshop-m1",
+  "track": "workshop",
+  "title": "M1: Your First Platform Feature",
+  "phase": 2,
+  "order": 11,
+  "summary": "Add one small feature to codin.py on a branch, merged through a real pull request. From here on you don't just use the platform - you build it.",
+  "requires": [
+    "python-c4",
+    "git-b2"
+  ]
+}

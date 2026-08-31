@@ -1,0 +1,44 @@
+{
+ "module": "terminal-a1",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "You're lost in the filesystem. Which command prints exactly where you are?",
+   "choices": [
+    "ls",
+    "pwd",
+    "cd",
+    "whereami"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2",
+   "q": "What does `cd ..` do?",
+   "choices": [
+    "goes to your home directory",
+    "re-runs the last command",
+    "moves one directory up, toward the root",
+    "deletes the current directory"
+   ],
+   "answer": 2
+  },
+  {
+   "key": "q3"
+  },
+  {
+   "key": "q4",
+   "q": "A path that starts with `/` is:",
+   "choices": [
+    "relative to where you're standing",
+    "absolute - the same from anywhere",
+    "always inside your home directory",
+    "a hidden path"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q5"
+  }
+ ]
+}

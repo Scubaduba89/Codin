@@ -1,0 +1,11 @@
+{
+  "id": "workshop-m3",
+  "track": "workshop",
+  "title": "M3: Quiz Mode, Yours",
+  "phase": 3,
+  "order": 7,
+  "summary": "The dashboard's practice page gets its next version - designed and built by you.",
+  "requires": [
+    "web-d4"
+  ]
+}

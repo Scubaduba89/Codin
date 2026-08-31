@@ -1,0 +1,12 @@
+{
+  "id": "homelab-h1",
+  "track": "homelab",
+  "title": "Self-Hosted",
+  "phase": 5,
+  "order": 5,
+  "summary": "The bridge to your homelab: deploy this dashboard onto your own server, on your own network. The Self-Hosted badge - and the beginning of the next journey.",
+  "requires": [
+    "web-d4",
+    "terminal-a7"
+  ]
+}

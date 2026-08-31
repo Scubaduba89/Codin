@@ -1,0 +1,11 @@
+{
+  "id": "c-f7",
+  "track": "c",
+  "title": "Capstone: Write Your Own Shell",
+  "phase": 4,
+  "order": 11,
+  "summary": "Five staged milestones - REPL, fork/exec/wait, built-ins, redirection, one pipe - ending with the ritual: use YOUR shell to run git commit on this repo.",
+  "requires": [
+    "c-f6"
+  ]
+}

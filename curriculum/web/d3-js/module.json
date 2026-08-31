@@ -1,0 +1,11 @@
+{
+  "id": "web-d3",
+  "track": "web",
+  "title": "JS Fundamentals",
+  "phase": 3,
+  "order": 4,
+  "summary": "Variables, functions, arrays, objects - 'a JS object is roughly a Python dict'. Your Python carries most of the weight here.",
+  "requires": [
+    "web-d2"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "web-d1",
+  "track": "web",
+  "title": "Read Your Own Dashboard",
+  "phase": 2,
+  "order": 4,
+  "summary": "Open docs/ and read the actual HTML of your own dashboard - tags, structure, where the numbers land. You'll never see a webpage the same way.",
+  "requires": [
+    "gate-p1"
+  ]
+}

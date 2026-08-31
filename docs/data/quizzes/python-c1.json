@@ -1,0 +1,58 @@
+{
+ "module": "python-c1",
+ "questions": [
+  {
+   "key": "q1",
+   "q": "In print(f\"{count} coins\"), what appears where the braces are?",
+   "choices": [
+    "the letters c-o-u-n-t, exactly as typed",
+    "the value the variable count holds",
+    "an error - braces aren't allowed in strings",
+    "nothing - the braces are stripped out"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q2"
+  },
+  {
+   "key": "q3",
+   "q": "A function's body is only print(\"hi\") - no return line. What does calling it evaluate to?",
+   "choices": [
+    "the string \"hi\"",
+    "True",
+    "None",
+    "it's a syntax error"
+   ],
+   "answer": 2
+  },
+  {
+   "key": "q4"
+  },
+  {
+   "key": "q5",
+   "q": "In an if / elif / else chain, which branches actually run?",
+   "choices": [
+    "every branch whose condition is true",
+    "only the first branch whose condition is true (else if none are)",
+    "the else always runs, plus at most one other",
+    "all of them, top to bottom"
+   ],
+   "answer": 1
+  },
+  {
+   "key": "q6",
+   "q": "What does `for n in [3, 1, 4]:` do with its body?",
+   "choices": [
+    "runs it 3 times, with n = 3, then 1, then 4",
+    "runs it once, with n = the whole list",
+    "runs it 4 times, counting n = 1, 2, 3, 4",
+    "runs it 8 times (3 + 1 + 4)"
+   ],
+   "answer": 0
+  },
+  {
+   "key": "q7"
+  }
+ ]
+}

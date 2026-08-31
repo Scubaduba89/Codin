@@ -1,0 +1,10 @@
+{
+ "modules": [
+  "git-b1",
+  "python-c1",
+  "terminal-a1",
+  "terminal-a2",
+  "terminal-a3",
+  "terminal-a4"
+ ]
+}

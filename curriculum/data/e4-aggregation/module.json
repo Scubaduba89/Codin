@@ -1,0 +1,11 @@
+{
+  "id": "data-e4",
+  "track": "data",
+  "title": "Aggregation & Reporting",
+  "phase": 3,
+  "order": 7,
+  "summary": "GROUP BY, COUNT, AVG - run on your own progress data: XP per week, wins per device. Your history becomes your dataset.",
+  "requires": [
+    "data-e3"
+  ]
+}

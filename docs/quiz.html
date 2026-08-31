@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codin — Quiz Practice</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/rules.js"></script>
+<script src="js/badges.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="brand">COD<span>IN</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tree.html">Skill Tree</a>
+    <a href="artifacts.html">Artifacts</a>
+    <a href="journey.html">Journey</a>
+    <a class="here" href="quiz.html">Quiz</a>
+  </nav>
+  <button id="themeBtn" title="toggle light/dark">◐</button>
+</header>
+<main>
+  <p class="asof" id="asof"> </p>
+  <p class="notice">Practice mode — dessert, not the meal. XP is earned
+  in the terminal: <code>python3 codin.py review</code> (2 minutes,
+  phone-friendly). This page is for idle-moment reps, and one day
+  (Workshop M3) you'll rebuild it yourself.</p>
+
+  <div id="decks" class="bgrid"></div>
+  <section class="card" id="play" hidden></section>
+
+<script>
+"use strict";
+const v = "?v=" + Date.now();
+
+function best(mod) {
+  try { return localStorage.getItem("codin-best-" + mod); }
+  catch (e) { return null; }
+}
+function setBest(mod, score) {
+  try {
+    const old = parseInt(best(mod) || "-1", 10);
+    if (score > old) localStorage.setItem("codin-best-" + mod, String(score));
+  } catch (e) {}
+}
+
+async function loadDecks() {
+  const idx = await fetch("data/quizzes/index.json" + v)
+    .then((r) => (r.ok ? r.json() : { modules: [] }))
+    .catch(() => ({ modules: [] }));
+  const decks = [];
+  for (const mod of idx.modules) {
+    const bank = await fetch("data/quizzes/" + mod + ".json" + v)
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    if (!bank) continue;
+    const mc = bank.questions.filter((q) => q.choices);
+    const exact = bank.questions.length - mc.length;
+    if (mc.length) decks.push({ mod, mc, exact });
+  }
+  return decks;
+}
+
+function playDeck(deck) {
+  const play = document.getElementById("play");
+  play.hidden = false;
+  play.textContent = "";
+  play.appendChild(el("h2", null, deck.mod + " — " + deck.mc.length + " questions"));
+  const qs = deck.mc.slice().sort(() => Math.random() - 0.5);
+  let i = 0, right = 0;
+  const box = el("div");
+  play.appendChild(box);
+  play.scrollIntoView({ behavior: "smooth" });
+
+  function ask() {
+    box.textContent = "";
+    if (i >= qs.length) {
+      setBest(deck.mod, right);
+      box.appendChild(el("p", null,
+        "Score: " + right + "/" + qs.length +
+        (right === qs.length ? " — clean sweep." : "")));
+      box.appendChild(el("p", "muted small",
+        "Personal best on this device: " + (best(deck.mod) || right) +
+        "/" + qs.length + ". Real XP for these lives in the terminal: " +
+        "python3 codin.py review"));
+      const again = el("button", "qchoice", "again");
+      again.onclick = () => { i = 0; right = 0; qs.sort(() => Math.random() - 0.5); ask(); };
+      box.appendChild(again);
+      return;
+    }
+    const q = qs[i];
+    box.appendChild(el("p", null, (i + 1) + ". " + q.q));
+    q.choices.forEach((choice, ci) => {
+      const btn = el("button", "qchoice", choice);
+      btn.onclick = () => {
+        if (btn.disabled) return;
+        [...box.querySelectorAll("button")].forEach((b) => (b.disabled = true));
+        if (ci === q.answer) { btn.classList.add("right"); right++; }
+        else {
+          btn.classList.add("wrong");
+          box.querySelectorAll("button")[q.answer].classList.add("right");
+        }
+        setTimeout(() => { i++; ask(); }, 900);
+      };
+      box.appendChild(btn);
+    });
+  }
+  ask();
+}
+
+loadDecks().then((decks) => {
+  const root = document.getElementById("decks");
+  if (!decks.length) {
+    root.appendChild(el("p", "muted",
+      "Decks appear here as you reach each module's quiz."));
+    return;
+  }
+  for (const deck of decks) {
+    const card = el("div", "badge deck");
+    card.appendChild(el("div", "bic", "🃏"));
+    card.appendChild(el("div", "bname", deck.mod));
+    card.appendChild(el("div", "bdesc",
+      deck.mc.length + " multiple-choice" +
+      (deck.exact ? " (+" + deck.exact + " more in the terminal)" : "")));
+    const b = best(deck.mod);
+    if (b !== null) card.appendChild(el("div", "bdate", "best: " + b + "/" + deck.mc.length));
+    card.onclick = () => playDeck(deck);
+    root.appendChild(card);
+  }
+});
+</script>
+</main>
+</body>
+</html>

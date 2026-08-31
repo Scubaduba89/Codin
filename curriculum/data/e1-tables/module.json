@@ -1,0 +1,11 @@
+{
+  "id": "data-e1",
+  "track": "data",
+  "title": "Tables & Queries",
+  "phase": 3,
+  "order": 1,
+  "summary": "SQLite from day one (it's already on your machines): SELECT, WHERE, ORDER BY, INSERT - on data worth querying.",
+  "requires": [
+    "gate-p2"
+  ]
+}

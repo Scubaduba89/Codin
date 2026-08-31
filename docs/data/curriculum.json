@@ -1,0 +1,1108 @@
+{
+ "modules": [
+  {
+   "id": "setup",
+   "track": "setup",
+   "title": "Bootstrap",
+   "phase": 0,
+   "order": 1,
+   "summary": "Wire up your machines, make your first real commit, meet your tutor. Five small wins and the whole loop - learn, verify, commit, sync, see it rendered - is running.",
+   "requires": [],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/setup",
+   "exercises": [
+    {
+     "id": "setup-01",
+     "title": "Wired Up",
+     "type": "micro",
+     "minutes": 5,
+     "phone": false,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "setup-02",
+     "title": "First Commit",
+     "type": "micro",
+     "minutes": 8,
+     "phone": false,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "setup-03",
+     "title": "Training Wheels, Transparently",
+     "type": "micro",
+     "minutes": 6,
+     "phone": false,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "setup-04",
+     "title": "Meet Your Tutor",
+     "type": "micro",
+     "minutes": 8,
+     "phone": false,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "setup-05",
+     "title": "Second Machine",
+     "type": "standard",
+     "minutes": 25,
+     "phone": true,
+     "xp": 15,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "terminal-a1",
+   "track": "terminal",
+   "title": "The Terminal Is a Place",
+   "phase": 1,
+   "order": 1,
+   "summary": "pwd, cd, ls, paths, tab completion, and the manual. The terminal stops being a void and becomes a place you can move through.",
+   "requires": [
+    "setup-01",
+    "setup-02",
+    "setup-03",
+    "setup-04"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a1-orientation",
+   "exercises": [
+    {
+     "id": "terminal-a1-01",
+     "title": "Where Am I?",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a1-02",
+     "title": "Look Around (Everything Hides)",
+     "type": "micro",
+     "minutes": 5,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a1-03",
+     "title": "Tab Flight",
+     "type": "micro",
+     "minutes": 5,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a1-04",
+     "title": "Homes and Roots (Two Kinds of Path)",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a1-05",
+     "title": "Ask the Manual",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a1-06",
+     "title": "The Treasure Hunt",
+     "type": "standard",
+     "minutes": 20,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "terminal-a2",
+   "track": "terminal",
+   "title": "Files & Folders",
+   "phase": 1,
+   "order": 2,
+   "summary": "mkdir, touch, cp, mv, rm, and * patterns. The filesystem stops being scenery: you build it, rearrange it, clean it up - and tame one gloriously messy downloads folder.",
+   "requires": [
+    "terminal-a1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a2-files",
+   "exercises": [
+    {
+     "id": "terminal-a2-01",
+     "title": "Build to Blueprint (mkdir + touch)",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a2-02",
+     "title": "Copy That (cp Leaves No Scars)",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a2-03",
+     "title": "The Two Faces of mv",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a2-04",
+     "title": "No Undo (rm, With Respect)",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a2-05",
+     "title": "Star Power (Glob Patterns)",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a2-06",
+     "title": "The Messy Downloads",
+     "type": "standard",
+     "minutes": 20,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "git-b1",
+   "track": "git",
+   "title": "The Daily Loop",
+   "phase": 1,
+   "order": 3,
+   "summary": "status, add, commit, pull, push - the five moves you'll make every day for the rest of your computing life. Practiced on toy repos first, then for real: this module ends with a commit of yours on GitHub that was never practice.",
+   "requires": [
+    "terminal-a1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/git/b1-daily-loop",
+   "exercises": [
+    {
+     "id": "git-b1-01",
+     "title": "Three Moves (status, add, commit)",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-02",
+     "title": "The Story So Far (log & diff)",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-03",
+     "title": "The Ignore List",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-04",
+     "title": "Staging Is a Choice",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "git-b1-05",
+     "title": "Round Trip (pull & push)",
+     "type": "standard",
+     "minutes": 15,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    },
+    {
+     "id": "git-b1-06",
+     "title": "The Real Thing",
+     "type": "standard",
+     "minutes": 12,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "terminal-a3",
+   "track": "terminal",
+   "title": "Permissions",
+   "phase": 1,
+   "order": 4,
+   "summary": "Every file carries a rulebook: who may read, write, run. Decode ls -l, speak chmod in letters and numbers, then write your first script - and meet the shebang the kernel reads.",
+   "requires": [
+    "terminal-a2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a3-permissions",
+   "exercises": [
+    {
+     "id": "terminal-a3-01",
+     "title": "Reading the Rulebook",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a3-02",
+     "title": "The Locked Script",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a3-03",
+     "title": "Permissions by the Numbers",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a3-04",
+     "title": "Your First Script (Meet the Shebang)",
+     "type": "standard",
+     "minutes": 15,
+     "phone": true,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "terminal-a4",
+   "track": "terminal",
+   "title": "Pipes & Text Streams",
+   "phase": 1,
+   "order": 5,
+   "summary": "> and >> aim output at files; | snaps small tools into pipelines. grep, sort, uniq, cut, wc - then you mine a real server log for its top talkers, one line, no code.",
+   "requires": [
+    "terminal-a3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a4-pipes",
+   "exercises": [
+    {
+     "id": "terminal-a4-01",
+     "title": "One Arrow, Two Arrows",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-02",
+     "title": "Count Without Looking",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-03",
+     "title": "Needles in the Haystack",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-04",
+     "title": "Sort, Then Count",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-05",
+     "title": "Slicing Columns",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "terminal-a4-06",
+     "title": "The Log Boss",
+     "type": "challenge",
+     "minutes": 20,
+     "phone": true,
+     "xp": 50,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "gates",
+   "track": "gates",
+   "title": "Phase Gates",
+   "phase": 1,
+   "order": 99,
+   "summary": "Cold, 10-minute self-tests that open the next phase. No hints, no tutor, free retakes forever - a gate measures what your hands remember.",
+   "requires": [],
+   "elective": false,
+   "no_bonus": true,
+   "dir": "curriculum/gates",
+   "exercises": [
+    {
+     "id": "gate-p1",
+     "title": "Gate: Terminal & Git Survival",
+     "type": "gate",
+     "minutes": 10,
+     "phone": false,
+     "xp": 50,
+     "requires": [
+      "terminal-a1",
+      "terminal-a2",
+      "terminal-a3",
+      "terminal-a4",
+      "git-b1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "python-c1",
+   "track": "python",
+   "title": "Back in the Saddle",
+   "phase": 2,
+   "order": 1,
+   "summary": "Variables, f-strings, functions, if/elif, loops, lists - a brisk re-tread of the Python you once started. You spent phase 1 running programs; now you write them.",
+   "requires": [
+    "gate-p1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c1-refresher",
+   "exercises": [
+    {
+     "id": "python-c1-01",
+     "title": "Hello Again",
+     "type": "micro",
+     "minutes": 6,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-02",
+     "title": "Return to Sender",
+     "type": "micro",
+     "minutes": 7,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-03",
+     "title": "Numbers and Megaphones",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-04",
+     "title": "Fork in the Road",
+     "type": "micro",
+     "minutes": 8,
+     "phone": true,
+     "xp": 10,
+     "requires": []
+    },
+    {
+     "id": "python-c1-05",
+     "title": "Round and Round",
+     "type": "standard",
+     "minutes": 15,
+     "phone": false,
+     "xp": 25,
+     "requires": []
+    }
+   ]
+  },
+  {
+   "id": "python-c2",
+   "track": "python",
+   "title": "Collections & Loops",
+   "phase": 2,
+   "order": 2,
+   "summary": "Lists, dicts, and loops - closing with the A4 log boss re-solved in Python: same problem, second language.",
+   "requires": [
+    "python-c1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c2-collections",
+   "exercises": []
+  },
+  {
+   "id": "terminal-a5",
+   "track": "terminal",
+   "title": "Environment & PATH",
+   "phase": 2,
+   "order": 3,
+   "summary": "Where commands come from: environment variables, $PATH, aliases, and your shell's config files. Ends with your own bin/ on the PATH.",
+   "requires": [
+    "gate-p1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a5-environment",
+   "exercises": []
+  },
+  {
+   "id": "python-c3",
+   "track": "python",
+   "title": "Functions & Structure",
+   "phase": 2,
+   "order": 4,
+   "summary": "Functions, arguments, returns, and modules - taught the way this platform grades you: make the committed tests pass. Demystifies `codin check` from the inside.",
+   "requires": [
+    "python-c2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c3-functions",
+   "exercises": []
+  },
+  {
+   "id": "web-d1",
+   "track": "web",
+   "title": "Read Your Own Dashboard",
+   "phase": 2,
+   "order": 4,
+   "summary": "Open docs/ and read the actual HTML of your own dashboard - tags, structure, where the numbers land. You'll never see a webpage the same way.",
+   "requires": [
+    "gate-p1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/web/d1-read-your-dashboard",
+   "exercises": []
+  },
+  {
+   "id": "python-c4",
+   "track": "python",
+   "title": "Files, JSON & Errors",
+   "phase": 2,
+   "order": 5,
+   "summary": "Read and write files, parse JSON, handle errors without fear - including pretty-printing your own events.jsonl: you'll read the platform's brain.",
+   "requires": [
+    "python-c3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c4-files-json",
+   "exercises": []
+  },
+  {
+   "id": "terminal-a6",
+   "track": "terminal",
+   "title": "Processes & Jobs",
+   "phase": 2,
+   "order": 6,
+   "summary": "Programs become processes: ps, top, Ctrl+C vs Ctrl+Z, jobs, fg, kill. The operating-system drip-feed begins here.",
+   "requires": [
+    "terminal-a5"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a6-processes",
+   "exercises": []
+  },
+  {
+   "id": "git-b2",
+   "track": "git",
+   "title": "Branching & Merging",
+   "phase": 2,
+   "order": 8,
+   "summary": "Branches, merges, and one scripted merge conflict you'll resolve on purpose - then a real feature branch merged through a GitHub pull request.",
+   "requires": [
+    "gate-p1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/git/b2-branching",
+   "exercises": []
+  },
+  {
+   "id": "python-c5",
+   "track": "python",
+   "title": "Stdlib Superpowers",
+   "phase": 2,
+   "order": 9,
+   "summary": "pathlib, subprocess (Python driving git!), http.server, argparse - and shipping the flashcards CLI, your first complete app.",
+   "requires": [
+    "python-c4"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c5-stdlib",
+   "exercises": []
+  },
+  {
+   "id": "terminal-a7",
+   "track": "terminal",
+   "title": "Shell Scripting",
+   "phase": 2,
+   "order": 10,
+   "summary": "Loops, variables, and `set -euo pipefail`: turn the pipelines you type into scripts that run while you watch. Ports an A4 pipeline into a reusable tool.",
+   "requires": [
+    "terminal-a6"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a7-scripting",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m1",
+   "track": "workshop",
+   "title": "M1: Your First Platform Feature",
+   "phase": 2,
+   "order": 11,
+   "summary": "Add one small feature to codin.py on a branch, merged through a real pull request. From here on you don't just use the platform - you build it.",
+   "requires": [
+    "python-c4",
+    "git-b2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m1-first-feature",
+   "exercises": []
+  },
+  {
+   "id": "data-e1",
+   "track": "data",
+   "title": "Tables & Queries",
+   "phase": 3,
+   "order": 1,
+   "summary": "SQLite from day one (it's already on your machines): SELECT, WHERE, ORDER BY, INSERT - on data worth querying.",
+   "requires": [
+    "gate-p2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/data/e1-tables",
+   "exercises": []
+  },
+  {
+   "id": "web-d2",
+   "track": "web",
+   "title": "CSS: Make It Yours",
+   "phase": 3,
+   "order": 2,
+   "summary": "Selectors, the box model, CSS variables, dark mode - practiced by restyling your own dashboard. The scaffold left obvious hooks on purpose.",
+   "requires": [
+    "gate-p2",
+    "web-d1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/web/d2-css",
+   "exercises": []
+  },
+  {
+   "id": "data-e2",
+   "track": "data",
+   "title": "Modeling & JOINs",
+   "phase": 3,
+   "order": 3,
+   "summary": "Design tables that relate - including this platform's own schema on paper first - then JOIN them. Earns JOINed Up.",
+   "requires": [
+    "data-e1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/data/e2-modeling",
+   "exercises": []
+  },
+  {
+   "id": "web-d3",
+   "track": "web",
+   "title": "JS Fundamentals",
+   "phase": 3,
+   "order": 4,
+   "summary": "Variables, functions, arrays, objects - 'a JS object is roughly a Python dict'. Your Python carries most of the weight here.",
+   "requires": [
+    "web-d2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/web/d3-js",
+   "exercises": []
+  },
+  {
+   "id": "data-e3",
+   "track": "data",
+   "title": "SQL from Python",
+   "phase": 3,
+   "order": 5,
+   "summary": "sqlite3 in the stdlib: parameters, transactions, and the bridge between the two languages you now speak.",
+   "requires": [
+    "data-e2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/data/e3-sql-from-python",
+   "exercises": []
+  },
+  {
+   "id": "web-d4",
+   "track": "web",
+   "title": "Fetch & Render",
+   "phase": 3,
+   "order": 6,
+   "summary": "fetch a JSON file, walk it, render DOM from data - the architecture-clicks module: you'll see exactly how your dashboard turns the event log into a page.",
+   "requires": [
+    "web-d3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/web/d4-fetch-render",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m2",
+   "track": "workshop",
+   "title": "M2: The Great Migration",
+   "phase": 3,
+   "order": 6,
+   "summary": "Move the platform's local progress cache into SQLite - with a Python export step still emitting events.jsonl for the dashboard. A real ETL, on your own data.",
+   "requires": [
+    "data-e3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m2-migration",
+   "exercises": []
+  },
+  {
+   "id": "data-e4",
+   "track": "data",
+   "title": "Aggregation & Reporting",
+   "phase": 3,
+   "order": 7,
+   "summary": "GROUP BY, COUNT, AVG - run on your own progress data: XP per week, wins per device. Your history becomes your dataset.",
+   "requires": [
+    "data-e3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/data/e4-aggregation",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m3",
+   "track": "workshop",
+   "title": "M3: Quiz Mode, Yours",
+   "phase": 3,
+   "order": 7,
+   "summary": "The dashboard's practice page gets its next version - designed and built by you.",
+   "requires": [
+    "web-d4"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m3-quiz-mode",
+   "exercises": []
+  },
+  {
+   "id": "git-b3",
+   "track": "git",
+   "title": "History & Repair",
+   "phase": 3,
+   "order": 8,
+   "summary": "git bisect hunts a planted bug, reflog resurrects 'lost' work, and you tag your platform v1.0. Nothing is ever lost.",
+   "requires": [
+    "gate-p2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/git/b3-history",
+   "exercises": []
+  },
+  {
+   "id": "python-c6",
+   "track": "python",
+   "title": "Objects & Testing",
+   "phase": 3,
+   "order": 9,
+   "summary": "Classes when they help, unittest always - closing with a debugging dojo of planted bugs to exorcise.",
+   "requires": [
+    "gate-p2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/python/c6-objects",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m4",
+   "track": "workshop",
+   "title": "M4: Write a Badge Rule",
+   "phase": 3,
+   "order": 10,
+   "summary": "Add a badge rule to docs/data/badges.json (or invent a new rule kind) - and watch it award itself retroactively from history you already lived.",
+   "requires": [
+    "python-c6"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m4-badge-smith",
+   "exercises": []
+  },
+  {
+   "id": "web-d5",
+   "track": "web",
+   "title": "Stats Page & the SVG Tree",
+   "phase": 3,
+   "order": 11,
+   "summary": "The project: a wholly-yours stats page, plus rewriting the skill tree in SVG - the upgrade the scaffold deliberately left for you.",
+   "requires": [
+    "web-d4"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/web/d5-stats-svg",
+   "exercises": []
+  },
+  {
+   "id": "terminal-a8",
+   "track": "terminal",
+   "title": "The Toolbelt",
+   "phase": 3,
+   "order": 12,
+   "summary": "A project: build the personal command toolbelt in bin/ you'll actually use - and earn the Toolsmith badge.",
+   "requires": [
+    "terminal-a7"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/terminal/a8-toolbelt",
+   "exercises": []
+  },
+  {
+   "id": "c-f1",
+   "track": "c",
+   "title": "Hello, Compiler",
+   "phase": 4,
+   "order": 1,
+   "summary": "cc turns text into machine code. Rewrite three tiny programs you've already written in Python - same logic, new world.",
+   "requires": [
+    "gate-p3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f1-hello-compiler",
+   "exercises": []
+  },
+  {
+   "id": "c-f2",
+   "track": "c",
+   "title": "Control Flow & the Stack",
+   "phase": 4,
+   "order": 2,
+   "summary": "Types, loops, functions, and the call stack - including blowing it up on purpose to see what 'stack overflow' literally means.",
+   "requires": [
+    "c-f1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f2-stack",
+   "exercises": []
+  },
+  {
+   "id": "machine-g1",
+   "track": "machine",
+   "title": "What a Kernel Is",
+   "phase": 4,
+   "order": 3,
+   "summary": "The program beneath your programs: what the kernel does, what userspace is, and the Termux revelation - uname -a on the phone in your pocket.",
+   "requires": [
+    "gate-p3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g1-kernel",
+   "exercises": []
+  },
+  {
+   "id": "c-f3",
+   "track": "c",
+   "title": "Pointers & Memory",
+   "phase": 4,
+   "order": 4,
+   "summary": "The famous cliff, taken in the smallest possible steps: predict-before-run worksheets, valgrind as a friend, and segfaults celebrated as specimens.",
+   "requires": [
+    "c-f2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f3-pointers",
+   "exercises": []
+  },
+  {
+   "id": "machine-g2",
+   "track": "machine",
+   "title": "/proc Spelunking",
+   "phase": 4,
+   "order": 5,
+   "summary": "The kernel narrates itself under /proc: live process anatomy, cmdlines, file descriptors. Desktop-first exploring.",
+   "requires": [
+    "machine-g1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g2-proc",
+   "exercises": []
+  },
+  {
+   "id": "c-f4",
+   "track": "c",
+   "title": "Structs & Files",
+   "phase": 4,
+   "order": 6,
+   "summary": "structs, arrays of them, reading and writing files - the to-do CLI a third time, now in C.",
+   "requires": [
+    "c-f3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f4-structs",
+   "exercises": []
+  },
+  {
+   "id": "machine-g3",
+   "track": "machine",
+   "title": "Memory",
+   "phase": 4,
+   "order": 7,
+   "summary": "Virtual memory made touchable: read /proc/<pid>/maps of a C program you wrote - stack, heap, code, right there at their addresses.",
+   "requires": [
+    "machine-g2",
+    "c-f3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g3-memory",
+   "exercises": []
+  },
+  {
+   "id": "c-f5",
+   "track": "c",
+   "title": "Syscalls",
+   "phase": 4,
+   "order": 8,
+   "summary": "strace your own printf and watch it become write(). The line between your program and the kernel, made visible. (Desktop-only labs.)",
+   "requires": [
+    "c-f4"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f5-syscalls",
+   "exercises": []
+  },
+  {
+   "id": "machine-g4",
+   "track": "machine",
+   "title": "Filesystems & Inodes",
+   "phase": 4,
+   "order": 9,
+   "summary": "What a file actually is: inodes, hard and soft links, mounts, and df/du - the storage layer under everything you've built.",
+   "requires": [
+    "machine-g2"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g4-filesystems",
+   "exercises": []
+  },
+  {
+   "id": "c-f6",
+   "track": "c",
+   "title": "fork, exec, wait",
+   "phase": 4,
+   "order": 10,
+   "summary": "How every program ever gets started: one process becomes two, one of them becomes something else. The shell capstone's engine room.",
+   "requires": [
+    "c-f5"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f6-fork-exec",
+   "exercises": []
+  },
+  {
+   "id": "c-f7",
+   "track": "c",
+   "title": "Capstone: Write Your Own Shell",
+   "phase": 4,
+   "order": 11,
+   "summary": "Five staged milestones - REPL, fork/exec/wait, built-ins, redirection, one pipe - ending with the ritual: use YOUR shell to run git commit on this repo.",
+   "requires": [
+    "c-f6"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/c/f7-myshell",
+   "exercises": []
+  },
+  {
+   "id": "machine-g5",
+   "track": "machine",
+   "title": "How Programs Become Processes",
+   "phase": 4,
+   "order": 12,
+   "summary": "ldd, readelf, and strace -f on your own shell running ls - narrated end to end, in your own words. The Whole Story badge.",
+   "requires": [
+    "c-f5",
+    "machine-g3"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g5-becoming-process",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m5",
+   "track": "workshop",
+   "title": "M5: Author an Exercise",
+   "phase": 5,
+   "order": 1,
+   "summary": "Build a Codin exercise from curriculum/_template/ - instructions, checker, quiz questions. The platform now teaches what you decide it teaches.",
+   "requires": [
+    "workshop-m1"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m5-author-exercise",
+   "exercises": []
+  },
+  {
+   "id": "machine-g6",
+   "track": "machine",
+   "title": "Deeper Water (electives)",
+   "phase": 5,
+   "order": 2,
+   "summary": "Loudly optional summits: a mini-ps in C, a TCP echo server, namespaces with unshare - and signposts to OSTEP, xv6, and Linux From Scratch for someday.",
+   "requires": [
+    "gate-p4"
+   ],
+   "elective": true,
+   "no_bonus": false,
+   "dir": "curriculum/machine/g6-deeper",
+   "exercises": []
+  },
+  {
+   "id": "machine-gp",
+   "track": "machine",
+   "title": "The Explainer",
+   "phase": 5,
+   "order": 3,
+   "summary": "The write-up project: 'How Linux works, as far as I can tell' - published on your dashboard with your own strace captures.",
+   "requires": [
+    "machine-g5"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/machine/gp-explainer",
+   "exercises": []
+  },
+  {
+   "id": "workshop-m6",
+   "track": "workshop",
+   "title": "M6: Own Your Pipeline",
+   "phase": 5,
+   "order": 4,
+   "summary": "Elective: replace plain /docs publishing with a GitHub Action you wrote and understand.",
+   "requires": [
+    "workshop-m5"
+   ],
+   "elective": true,
+   "no_bonus": false,
+   "dir": "curriculum/workshop/m6-pages-action",
+   "exercises": []
+  },
+  {
+   "id": "homelab-h1",
+   "track": "homelab",
+   "title": "Self-Hosted",
+   "phase": 5,
+   "order": 5,
+   "summary": "The bridge to your homelab: deploy this dashboard onto your own server, on your own network. The Self-Hosted badge - and the beginning of the next journey.",
+   "requires": [
+    "web-d4",
+    "terminal-a7"
+   ],
+   "elective": false,
+   "no_bonus": false,
+   "dir": "curriculum/homelab/h1-self-hosted",
+   "exercises": []
+  }
+ ]
+}
