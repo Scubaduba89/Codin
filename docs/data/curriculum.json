@@ -55,7 +55,8 @@
      "minutes": 25,
      "phone": true,
      "xp": 15,
-     "requires": []
+     "requires": [],
+     "deferrable": true
     }
    ]
   },

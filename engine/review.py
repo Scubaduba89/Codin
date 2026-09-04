@@ -8,6 +8,7 @@ there is no separate state to sync or lose.
 
 from datetime import datetime, timezone
 
+from . import sync as sync_mod
 from . import events, quiz as quiz_mod, state, ui
 
 INTERVALS_DAYS = [2, 7, 21, 60]
@@ -73,4 +74,6 @@ def run(repo_root, curriculum, replay_state):
     if len(due) > SESSION_CAP:
         ui.say("  (%d more due - another sitting, another day.)" %
                (len(due) - SESSION_CAP))
+    for line in sync_mod.nudge_lines(repo_root):
+        ui.say(ui.c("  " + line, "dim"))
     return 0

@@ -42,7 +42,7 @@ def suggest(curriculum, replay_state, local, phone=False, minutes=None, due_revi
         if kind == "exercise" and ex["module"] not in in_progress_modules:
             in_progress_modules.append(ex["module"])
 
-    def candidates():
+    def candidates(skip_deferrable=True):
         # In-progress (non-parked) modules first, then curriculum order.
         mods = sorted(
             curriculum["modules"],
@@ -53,6 +53,11 @@ def suggest(curriculum, replay_state, local, phone=False, minutes=None, due_revi
                 continue
             for ex in mod["exercises"]:
                 if ex["id"] in done:
+                    continue
+                # Deferrable exercises need something the learner may not
+                # have yet (setup-05 needs a SECOND machine). Never make one
+                # the only suggestion - that is a dead end, not a next step.
+                if skip_deferrable and ex.get("deferrable"):
                     continue
                 ok, _unmet = content.unlocked(curriculum, ex, replay_state)
                 if ok:
@@ -75,10 +80,13 @@ def suggest(curriculum, replay_state, local, phone=False, minutes=None, due_revi
                     "why": "nothing phone-sized is unlocked, but reviews are always phone-sized"}
         for ex in candidates():  # honest fallback: ignore the phone filter
             return {"kind": "exercise", "exercise": ex,
-                    "why": "heads-up: this one is better done at the desk"}
+                    "why": "doable here, though it was written for the desk"}
 
     if due_reviews > 0:
         return {"kind": "review", "due": due_reviews,
                 "why": "everything unlocked is done - reviews keep it warm"}
+    for ex in candidates(skip_deferrable=False):
+        return {"kind": "exercise", "exercise": ex,
+                "why": "waiting on a second machine, but here when you are"}
     return {"kind": "done",
             "why": "Nothing unlocked is unfinished. Time to open the next gate."}

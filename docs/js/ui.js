@@ -25,9 +25,10 @@ function asOf(state) {
   if (!n) return;
   n.textContent = state.events.length
     ? "progress as of " + fmtWhen(state.events[state.events.length - 1].ts) +
-      " (this page reads the committed log - a fresh push shows up on the " +
-      "public site within ~10 minutes)"
-    : "no progress recorded yet - the first win takes about five minutes";
+      " — this page renders the copy of your progress log it was served; " +
+      "after a push the public site catches up within ~10 minutes"
+    : "nothing published here yet — a win lives on the machine that earned " +
+      "it until you run: python3 codin.py sync";
 }
 
 /* theme: system by default; the button cycles an explicit choice */
@@ -52,11 +53,15 @@ function heatmap(days, weeks) {
   const set = new Set(days);
   const wrap = el("div", "heat-wrap");
   const grid = el("div", "heat");
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  // Keys come from event timestamps, which are UTC (SPEC.md §5), so the
+  // grid must be walked in UTC or every square is off by one east of London.
+  const now = new Date();
+  const today = new Date(Date.UTC(
+    now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
   const start = new Date(today);
   // back to this week's Monday, then (weeks-1) whole weeks further
-  start.setDate(start.getDate() - ((today.getDay() + 6) % 7) - (weeks - 1) * 7);
+  start.setUTCDate(
+    start.getUTCDate() - ((today.getUTCDay() + 6) % 7) - (weeks - 1) * 7);
   const d = new Date(start);
   for (let w = 0; w < weeks; w++) {
     const col = el("div", "wk");
@@ -67,7 +72,7 @@ function heatmap(days, weeks) {
       if (future) cell.style.visibility = "hidden";
       cell.title = key;
       col.appendChild(cell);
-      d.setDate(d.getDate() + 1);
+      d.setUTCDate(d.getUTCDate() + 1);
     }
     grid.appendChild(col);
   }
@@ -90,6 +95,9 @@ function nextUp(curriculum, state) {
   for (const m of mods) {
     if (!met(m.requires)) continue;
     for (const ex of m.exercises) {
+      // deferrable exercises wait on something outside the repo (a second
+      // machine) - never the headline suggestion
+      if (ex.deferrable) continue;
       if (!state.done[ex.id] && met(ex.requires || [])) {
         return { module: m, ex };
       }

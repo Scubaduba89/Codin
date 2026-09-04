@@ -4,5 +4,6 @@
   "type": "standard",
   "minutes": 25,
   "phone": true,
-  "xp": 15
+  "xp": 15,
+  "deferrable": true
 }

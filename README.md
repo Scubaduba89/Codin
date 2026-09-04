@@ -45,7 +45,7 @@ Short version: install **Termux from F-Droid** (not the Play Store —
 that build is abandoned), then:
 
 ```
-pkg install python git gh
+pkg install python git gh nano man
 gh auth login
 cd ~ && git clone https://github.com/Scubaduba89/Codin codin
 cd codin

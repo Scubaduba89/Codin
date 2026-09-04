@@ -7,7 +7,8 @@ the Python you once started - briskly, one small win at a time.
 
        nano solution.py
 
-   (Any editor is fine; nano exists on both of your machines.)
+   (Any editor is fine. If `nano` isn't installed yet: `pkg install
+   nano` on the phone, or use whatever editor you already like.)
 
 2. Near the top, define a variable:
 

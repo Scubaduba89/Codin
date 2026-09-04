@@ -58,8 +58,12 @@ loadWorld().then((w) => {
   const gap = daysSinceLast(s);
   if (!s.events.length) {
     card.appendChild(el("p", null,
-      "Nothing recorded yet - and the first win takes five minutes. " +
-      "In a terminal at the repo:"));
+      "Nothing has been published here yet. This page shows what has " +
+      "reached GitHub — a win you just earned lives on the machine that " +
+      "earned it until you push it. Already passed something?"));
+    card.appendChild(el("code", "next-cmd", "python3 codin.py sync"));
+    card.appendChild(el("p", "muted small",
+      "Starting from scratch instead? Your first win is five minutes away:"));
     card.appendChild(el("code", "next-cmd", "python3 codin.py check setup-01"));
   } else {
     if (gap !== null && gap >= 7) {
