@@ -9,12 +9,14 @@ transparent: you get to see exactly what they do.
    It commits your new progress events, pulls anything from other
    devices, and pushes. That's all it will ever do.
 
-2. Now read it. It's about 15 lines:
+2. Now read it:
 
        less engine/sync.py
 
-   (Press `q` to leave `less`.) Notice it's just the commands you
-   typed in the last exercise.
+   (Press `q` to leave `less`.) Skip past the error handling and find
+   the `run` function. At its heart are three commands - commit, pull,
+   push - the same ones you typed by hand last exercise. Everything
+   else in that file exists to tell you the truth when git says no.
 
 3. See your progress rendered. Your dashboard is a folder of files in
    `docs/` - serve it locally:

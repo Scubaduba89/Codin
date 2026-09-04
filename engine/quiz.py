@@ -11,6 +11,7 @@ import os
 import random
 from pathlib import Path
 
+from . import sync as sync_mod
 from . import checkers, events, state, ui
 
 PASS_RATIO = 0.8
@@ -95,4 +96,6 @@ def run(repo_root, module_id, replay_state):
     ui.say(ui.c("  ✔ Quiz passed  +%d XP" % QUIZ_XP, "green", "bold"))
     ui.say("  (These questions now feed your spaced reviews: they'll come "
            "due in 2 days.)")
+    for line in sync_mod.nudge_lines(repo_root):
+        ui.say(ui.c("  " + line, "dim"))
     return 0

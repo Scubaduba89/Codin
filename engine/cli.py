@@ -212,9 +212,13 @@ def cmd_doctor(repo_root, args):
 
 def cmd_sync(repo_root, args):
     ui.headline("Sync")
-    for line in sync_mod.run(repo_root):
-        ui.say("  · " + line)
-    ui.say(ui.c("  (This command is ~15 lines of Python: engine/sync.py. Worth a read.)", "dim"))
+    for entry in sync_mod.run(repo_root):
+        parts = entry.splitlines() or [""]
+        ui.say("  · " + parts[0])
+        for extra in parts[1:]:
+            ui.say("      " + extra)
+    ui.say(ui.c("  (What it just ran: commit, pull, push - the same commands you'll", "dim"))
+    ui.say(ui.c("   type by hand in the Git track. It lives in engine/sync.py.)", "dim"))
     ui.say("")
 
 
@@ -301,10 +305,8 @@ def _celebrate_pass(repo_root, curriculum, ex, before, etype, xp, note=None):
         if c["module"] not in before["completed_modules"] and c["bonus"]:
             ui.say(ui.c("  ◆ Module %s complete: +%d bonus XP" %
                         (c["module"], c["bonus"]), "yellow", "bold"))
-    unsynced = sync_mod.unsynced_count(repo_root)
-    if unsynced >= 5:
-        ui.say(ui.c("  (%d events only on this machine - worth a `%s sync`.)" %
-                    (unsynced, PY), "dim"))
+    for line in sync_mod.nudge_lines(repo_root, PY):
+        ui.say(ui.c("  " + line, "dim"))
     ui.say("")
 
 
@@ -355,6 +357,17 @@ def cmd_check(repo_root, args):
                 return 0
         _, note = checkers.run_check(repo_root, ex, checker, box)
     except checkers.CheckFail as e:
+        if ex["id"] in st["done"]:
+            ui.say("")
+            ui.say(ui.c("  ✔ Already earned.", "green") +
+                   " %s passed before, so its XP is banked" % ex["id"])
+            ui.say("  and safe. The sandbox has moved on since then, which is")
+            ui.say("  why the checker now says:")
+            ui.say(ui.c("    " + str(e).splitlines()[0], "dim"))
+            ui.say(ui.c("  (Want a clean board to redo it on? %s reset %s)"
+                        % (PY, ex["id"]), "dim"))
+            ui.say("")
+            return 0
         ui.fail(str(e))
         return 1
 

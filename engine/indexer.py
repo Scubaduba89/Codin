@@ -25,7 +25,9 @@ def _strip(mod):
     out["exercises"] = [
         {
             k: ex[k]
-            for k in ("id", "title", "type", "minutes", "phone", "xp", "requires")
+            for k in ("id", "title", "type", "minutes", "phone", "xp",
+                      "requires", "deferrable")
+            if k in ex
         }
         for ex in mod["exercises"]
     ]

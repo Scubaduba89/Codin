@@ -42,6 +42,25 @@ def checks(repo_root, need_cc=False):
     out.append((bool(remote), "origin remote", "clone this repo from GitHub "
                 "rather than copying the folder"))
 
+    if remote:
+        # A dry-run push changes nothing on GitHub but proves the whole
+        # publish path works. setup-02 needs a real push minutes from now -
+        # better to find out here than mid-exercise.
+        try:
+            probe = subprocess.run(
+                ["git", "-C", str(repo_root), "push", "--dry-run", "--quiet"],
+                capture_output=True, text=True, timeout=60)
+            said = (probe.stderr or "").strip().splitlines()
+            out.append((probe.returncode == 0, "can publish to GitHub",
+                        "GitHub is not accepting a push from this machine yet.\n"
+                        "     Sign in once:  gh auth login   "
+                        "(Termux: pkg install gh)\n"
+                        "     git said: " + (said[0] if said else "nothing")))
+        except subprocess.TimeoutExpired:
+            out.append((False, "can publish to GitHub",
+                        "GitHub did not answer in 60s - check your connection, "
+                        "then run doctor again."))
+
     if state.is_termux():
         bad = "/storage/" in str(Path(repo_root).resolve())
         out.append((not bad, "repo lives in Termux home",
